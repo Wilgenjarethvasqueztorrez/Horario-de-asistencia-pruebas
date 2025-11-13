@@ -1,4 +1,4 @@
-<!-- Sidebar Navigation -->  
+<!-- Sidebar Navegacion -->  
 <!-- Botón para abrir el menú -->  
 <button class="menu-toggle" id="menuToggle">  
   <i class="bi bi-list"></i> Menú  
@@ -16,8 +16,15 @@
   <ul class="sidebar-menu">  
     <li>  
       <a href="index.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">  
+        <i class="bi bi-speedometer2"></i>  
+        <span>Dashboard</span>  
+      </a>  
+    </li>
+
+    <li>  
+      <a href="usuario.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'usuario.php' ? 'active' : ''; ?>">  
         <i class="bi bi-house-door"></i>  
-        <span>Inicio</span>  
+        <span>Usuarios</span>  
       </a>  
     </li>  
       

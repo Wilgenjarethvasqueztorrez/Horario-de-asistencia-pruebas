@@ -1,7 +1,7 @@
 <?php  
 session_start();  
   
-// Si ya está logueado, redirigir a usuarios.php  
+// Si ya está logueado, redirigir a index.php  
 if (isset($_SESSION['usuario_id'])) {  
     header("location: index.php");  
     exit();  

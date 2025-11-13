@@ -1,3 +1,10 @@
+<?php  
+// Proteger la página  
+require("Config/verificarSesion.php");  
+  
+// Solo administradores pueden ver esta página  
+verificarRol(['Administrador','Oficina']);  
+?>  
 <!doctype html>  
 <html lang="es">  
 <head>  
@@ -13,6 +20,8 @@
   <?php include('src/includes/sidebar.php'); ?>  
 
   <main class="container mt-4">  
+    <?php include('src/includes/userbar.php'); ?>
+   
     <h1 class="bg-info p-3 text-white text-center rounded">👷 GESTIÓN DE EMPLEADOS</h1>  
     
     <div class="text-end mb-3">  

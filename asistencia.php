@@ -1,3 +1,10 @@
+<?php  
+// Proteger la página  
+require("Config/verificarSesion.php");  
+  
+// Solo administradores pueden ver esta página  
+verificarRol(['Administrador','Empleado','Oficina']);  
+?>  
 <!doctype html>  
 <html lang="es">  
 <head>  
@@ -13,6 +20,8 @@
   <?php include('src/includes/sidebar.php'); ?>  
 
   <main class="container mt-4">  
+    <?php include('src/includes/userbar.php'); ?>
+
     <h1 class="bg-info p-3 text-white text-center rounded">📋 LISTADO DE ASISTENCIAS</h1>  
   
     <div class="text-end mb-3">  
@@ -79,6 +88,9 @@
                 ?>  
               </td>  
               <td class="acciones">  
+                <a href="Formularios/EditarAsistencia.php?Id=<?php echo $resultado['id']; ?>" class="btn btn-warning btn-sm">    
+                  <i class="bi bi-pencil"></i> Editar    
+                </a>  
                 <a href="CRUD/eliminarAsistencia.php?Id=<?php echo $resultado['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de eliminar este registro de asistencia?')">  
                   <i class="bi bi-trash3"></i> Eliminar  
                 </a>  

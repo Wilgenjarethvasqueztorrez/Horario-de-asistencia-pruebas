@@ -1,3 +1,10 @@
+<?php  
+// Proteger la página  
+require("Config/verificarSesion.php");  
+  
+// Solo administradores pueden ver esta página  
+verificarRol(['Administrador','Oficina','Empleado']);  
+?>  
 <!doctype html>  
 <html lang="es">  
 <head>  
@@ -13,6 +20,8 @@
   <?php include('src/includes/sidebar.php'); ?>  
 
   <main class="container mt-4">  
+     <?php include('src/includes/userbar.php'); ?>
+
     <h1 class="bg-info p-3 text-white text-center rounded">📅 GESTIÓN DE DÍAS NO LABORALES</h1>  
   
     <div class="text-end mb-3">  
@@ -21,7 +30,7 @@
       </a>  
     </div>  
   
-    <!-- Tabs para separar Feriados y Vacaciones -->  
+    <!-- Tablas para separar Feriados y Vacaciones -->  
     <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">  
       <li class="nav-item" role="presentation">  
         <button class="nav-link active" id="feriados-tab" data-bs-toggle="tab" data-bs-target="#feriados" type="button">  
@@ -36,7 +45,7 @@
     </ul>  
   
     <div class="tab-content" id="myTabContent">  
-      <!-- Tab de Feriados -->  
+      <!-- Tabla de Feriados -->  
       <div class="tab-pane fade show active" id="feriados" role="tabpanel">  
         <div class="table-container">  
           <table class="table table-hover">  
@@ -79,6 +88,7 @@
       </div>  
   
       <div class="tab-pane fade" id="vacaciones" role="tabpanel">  
+        <!-- Tabla de vacaciones -->
         <div class="table-container">  
           <table class="table table-hover">  
             <thead>  
