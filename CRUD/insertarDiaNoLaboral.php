@@ -17,7 +17,7 @@ if ($empleado_id === NULL) {
 }  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../dia_no_laboral.php");  
+    header("location:../dia_no_laboral.php?success=agregado");  
 } else {  
-    echo "Día no laboral no insertado: " . mysqli_error($conexion);  
-}  
+    header("location:../dia_no_laboral.php?error=db");  
+}

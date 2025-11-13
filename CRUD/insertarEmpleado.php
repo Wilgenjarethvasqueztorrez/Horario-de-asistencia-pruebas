@@ -9,7 +9,7 @@ $sql = "INSERT INTO empleados (empleado_id, rol_id, activo)
         VALUES ($usuario_id, $rol_id, $activo)";  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../empleado.php");  
+    header("location:../empleado.php?success=agregado");  
 } else {  
-    echo "Empleado no insertado: " . mysqli_error($conexion);  
-}  
+    header("location:../empleado.php?error=db");  
+}

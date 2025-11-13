@@ -28,7 +28,7 @@ if (empty($horaSalida)) {
 }  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../asistencia.php");  
+    header("location:../asistencia.php?success=editado");  
 } else {  
-    echo "Error al actualizar: " . mysqli_error($conexion);  
-}  
+    header("location:../asistencia.php?error=db");  
+}

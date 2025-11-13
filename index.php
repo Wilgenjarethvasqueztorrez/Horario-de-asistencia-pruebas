@@ -142,49 +142,59 @@ $totalAsistenciasSemana = $conexion->query("SELECT COUNT(*) as total FROM asiste
       </div>
     </div>
   
-<!-- EMPLEADOS TRABAJANDO AHORA -->  
-<h3 class="mt-5"><i class="bi bi-person-workspace"></i> Empleados Trabajando Ahora</h3>  
-<div class="dashboard-table-container mb-4">  
-  <table class="table table-hover align-middle">  
-    <thead class="table-light">  
-      <tr>  
-        <th>Empleado</th>  
-        <th>Rol</th>  
-        <th>Hora Entrada</th>  
-        <th>Tiempo Transcurrido</th>  
-      </tr>  
-    </thead>  
-    <tbody>  
-      <?php  
-      $sqlEmpleadosActivos = $conexion->query("  
-        SELECT asistencias.*, usuarios.nombre, usuarios.apellido, roles.nombre AS rol_nombre  
-        FROM asistencias  
-        INNER JOIN empleados ON asistencias.empleado_id = empleados.id  
-        INNER JOIN usuarios ON empleados.empleado_id = usuarios.id  
-        INNER JOIN roles ON empleados.rol_id = roles.id  
-        WHERE asistencias.fecha = '$fecha_actual' AND asistencias.hora_salida IS NULL  
-        ORDER BY asistencias.hora_entrada DESC  
-      ");  
-      if ($sqlEmpleadosActivos->num_rows > 0) {  
-        while ($emp = $sqlEmpleadosActivos->fetch_assoc()) {  
-          // CORRECCIÓN: Combinar fecha y hora para el cálculo correcto  
-          $diferencia = time() - strtotime($emp['fecha'] . ' ' . $emp['hora_entrada']);  
-          $horas = floor($diferencia / 3600);  
-          $minutos = floor(($diferencia % 3600) / 60);  
-          echo "<tr>  
-                  <td><strong>{$emp['nombre']} {$emp['apellido']}</strong></td>  
-                  <td>{$emp['rol_nombre']}</td>  
-                  <td>" . date('h:i A', strtotime($emp['hora_entrada'])) . "</td>  
-                  <td><span class='badge bg-success'>{$horas}h {$minutos}m</span></td>  
-                </tr>";  
-        }  
-      } else {  
-        echo "<tr><td colspan='4' class='text-center text-muted'>No hay empleados trabajando actualmente</td></tr>";  
-      }  
-      ?>  
-    </tbody>  
-  </table>  
+<!-- EMPLEADOS TRABAJANDO AHORA -->
+<h3 class="mt-5"><i class="bi bi-person-workspace"></i> Empleados Trabajando Ahora</h3>
+<div class="dashboard-table-container mb-4">
+  <table class="table table-hover align-middle">
+    <thead class="table-light">
+      <tr>
+        <th>Empleado</th>
+        <th>Rol</th>
+        <th>Hora Entrada</th>
+        <th>Tiempo Transcurrido</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+      date_default_timezone_set('America/Mexico_City'); // Ajusta según tu zona horaria
+
+      $sqlEmpleadosActivos = $conexion->query("
+        SELECT a.*, u.nombre, u.apellido, r.nombre AS rol_nombre
+        FROM asistencias a
+        INNER JOIN empleados e ON a.empleado_id = e.id
+        INNER JOIN usuarios u ON e.empleado_id = u.id
+        INNER JOIN roles r ON e.rol_id = r.id
+        WHERE a.fecha = '$fecha_actual' AND a.hora_salida IS NULL
+        ORDER BY a.hora_entrada DESC
+      ");
+
+      if ($sqlEmpleadosActivos->num_rows > 0) {
+        while ($emp = $sqlEmpleadosActivos->fetch_assoc()) {
+
+          // Crear objetos DateTime para mayor precisión
+          $entrada = new DateTime("{$emp['fecha']} {$emp['hora_entrada']}");
+          $ahora = new DateTime();
+
+          // Diferencia exacta
+          $intervalo = $entrada->diff($ahora);
+          $horas = $intervalo->h + ($intervalo->days * 24);
+          $minutos = $intervalo->i;
+
+          echo "<tr>
+                  <td><strong>{$emp['nombre']} {$emp['apellido']}</strong></td>
+                  <td>{$emp['rol_nombre']}</td>
+                  <td>" . date('h:i A', strtotime($emp['hora_entrada'])) . "</td>
+                  <td><span class='badge bg-success'>{$horas}h {$minutos}m</span></td>
+                </tr>";
+        }
+      } else {
+        echo "<tr><td colspan='4' class='text-center text-muted'>No hay empleados trabajando actualmente</td></tr>";
+      }
+      ?>
+    </tbody>
+  </table>
 </div>
+
 
     <!-- ÚLTIMAS ASISTENCIAS -->
     <h3 class="mt-5"><i class="bi bi-clock-history"></i> Últimas Asistencias Registradas</h3>

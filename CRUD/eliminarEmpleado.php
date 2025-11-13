@@ -7,6 +7,8 @@ $sql = "DELETE FROM empleados WHERE id=".$Id."";
 
 $query = mysqli_query($conexion,$sql);
 
-if ($query === TRUE) {
-   header("location: ../empleado.php");
+if (mysqli_query($conexion, $sql)) {  
+    header("location:../empleado.php?success=eliminado");  
+} else {  
+    header("location:../empleado.php?error=db");  
 }

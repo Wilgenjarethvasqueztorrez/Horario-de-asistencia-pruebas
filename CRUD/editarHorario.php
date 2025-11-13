@@ -21,10 +21,10 @@ if ($tipo == 'Flexible') {
 }  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../horario.php");  
+    header("location:../horario.php?success=editado");  
 } else {  
-    echo "Horario no actualizado: " . mysqli_error($conexion);  
-}  
+    header("location:../horario.php?error=db");  
+}
 
 
 

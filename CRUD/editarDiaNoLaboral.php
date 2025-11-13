@@ -20,7 +20,7 @@ if ($empleado_id === NULL) {
 }  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../dia_no_laboral.php");  
+    header("location:../dia_no_laboral.php?success=editado");  
 } else {  
-    echo "Día no laboral no actualizado: " . mysqli_error($conexion);  
+    header("location:../dia_no_laboral.php?error=db");  
 }

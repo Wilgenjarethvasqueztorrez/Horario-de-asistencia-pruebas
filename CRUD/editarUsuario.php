@@ -17,8 +17,7 @@ $sql = "UPDATE usuarios
         WHERE id=$id";  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../index.php");  
+    header("location:../usuario.php?success=editado");  
 } else {  
-    echo "Error al actualizar usuario: " . mysqli_error($conexion);  
-}  
-
+    header("location:../usuario.php?error=db");  
+}

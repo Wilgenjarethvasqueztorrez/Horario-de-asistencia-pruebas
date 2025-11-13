@@ -8,7 +8,7 @@ $id = $_GET['Id'];
 $sql = "DELETE FROM roles WHERE id=$id";  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../rol.php");  
+    header("location:../rol.php?success=eliminado");  
 } else {  
-    echo "Rol no eliminado: " . mysqli_error($conexion);  
-}  
+    header("location:../rol.php?error=db");  
+}

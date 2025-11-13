@@ -18,7 +18,7 @@ if ($hora_salida === NULL) {
 }  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../asistencia.php");  
+    header("location:../asistencia.php?success=agregado");  
 } else {  
-    echo "Asistencia no registrada: " . mysqli_error($conexion);  
-}  
+    header("location:../asistencia.php?error=db");  
+}

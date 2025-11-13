@@ -8,7 +8,7 @@ $id = $_GET['Id'];
 $sql = "DELETE FROM usuarios WHERE id=$id";  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../index.php");  
+    header("location:../usuario.php?success=eliminado");  
 } else {  
-    echo "Usuario no eliminado: " . mysqli_error($conexion);  
-}  
+    header("location:../usuario.php?error=db");  
+}

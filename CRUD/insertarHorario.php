@@ -18,10 +18,10 @@ if ($tipo == 'Flexible') {
 }  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../horario.php");  
+    header("location:../horario.php?success=agregado");  
 } else {  
-    echo "Horario no insertado: " . mysqli_error($conexion);  
-}  
+    header("location:../horario.php?error=db");  
+}
 
 
 
