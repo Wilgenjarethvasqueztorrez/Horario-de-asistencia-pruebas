@@ -23,7 +23,7 @@
 
     <li>  
       <a href="usuario.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'usuario.php' ? 'active' : ''; ?>">  
-        <i class="bi bi-house-door"></i>  
+        <i class="bi bi-person-gear"></i>  
         <span>Usuarios</span>  
       </a>  
     </li>  
