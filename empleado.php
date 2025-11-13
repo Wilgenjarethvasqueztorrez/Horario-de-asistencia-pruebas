@@ -3,7 +3,7 @@
 require("Config/verificarSesion.php");  
   
 // Solo administradores pueden ver esta página  
-verificarRol(['Administrador','Oficina']);  
+verificarRol(['Administrador','Oficina','Empleado']);  
 ?>  
 <!doctype html>  
 <html lang="es">  
@@ -13,6 +13,10 @@ verificarRol(['Administrador','Oficina']);
   <title>Gestión de Empleados</title>  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">  
+  <!-- CSS de DataTables -->  
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">  
+  <!-- jQuery (requerido por DataTables) -->  
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>  
   <link rel="stylesheet" href="src/css/styles.css">  
 </head>  
 <body>  
@@ -34,7 +38,7 @@ verificarRol(['Administrador','Oficina']);
     </div>  
     
     <div class="table-container">  
-      <table class="table table-hover">  
+      <table id="tabla"  class="table table-hover">  
         <thead>  
           <tr>  
             <th>Nombre</th>  
@@ -96,7 +100,7 @@ verificarRol(['Administrador','Oficina']);
                 <a href="CRUD/eliminarEmpleado.php?Id=<?php echo $resultado['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de eliminar este empleado?')">  
                   <i class="bi bi-trash3"></i> Eliminar  
                 </a>  
-                <a href="Formularios/VerAsistencias.php?Id=<?php echo $resultado['id']; ?>" class="btn btn-info btn-sm">  
+                <a target="_blank" href="Formularios/VerAsistencias.php?Id=<?php echo $resultado['id']; ?>" class="btn btn-info btn-sm">  
                   <i class="bi bi-calendar-check"></i> Asistencias  
                 </a>  
               </td>  
@@ -107,6 +111,21 @@ verificarRol(['Administrador','Oficina']);
     </div>  
   </main>  
     
+  <!-- Inicializar DataTables -->
+  <!-- Primero: JavaScript de DataTables -->  
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>  
+  
+  <!-- Segundo: script de inicialización -->  
+  <script>  
+  $(document).ready(function() {  
+      $('#tabla').DataTable({  
+          "language": {  
+              "url": "//cdn.datatables.net/plug-ins/1.13.7/i18n/es-ES.json"  
+          }  
+      });  
+  });  
+  </script>  
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  
 </body>  
 </html>

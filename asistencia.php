@@ -13,6 +13,10 @@ verificarRol(['Administrador','Empleado','Oficina']);
   <title>Gestión de Asistencias</title>  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">  
+    <!-- CSS de DataTables -->  
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">  
+  <!-- jQuery (requerido por DataTables) -->  
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>  
   <link rel="stylesheet" href="src/css/styles.css">  
 </head>  
 <body>  
@@ -31,7 +35,7 @@ verificarRol(['Administrador','Empleado','Oficina']);
     </div>  
   
     <div class="table-container">  
-      <table class="table table-hover">  
+      <table id="tabla" class="table table-hover">  
         <thead>  
           <tr>  
             <th>Empleado</th>  
@@ -102,6 +106,21 @@ verificarRol(['Administrador','Empleado','Oficina']);
     </div>  
   </main>  
   
+  <!-- Inicializar DataTables -->
+  <!-- Primero: JavaScript de DataTables -->  
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>  
+  
+  <!-- Segundo: script de inicialización -->  
+  <script>  
+  $(document).ready(function() {  
+      $('#tabla').DataTable({  
+          "language": {  
+              "url": "//cdn.datatables.net/plug-ins/1.13.7/i18n/es-ES.json"  
+          }  
+      });  
+  });  
+  </script>  
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  
 </body>  
 </html>
