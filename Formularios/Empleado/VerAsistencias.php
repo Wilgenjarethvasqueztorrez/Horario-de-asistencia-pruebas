@@ -6,13 +6,21 @@
   <title>Ver Asistencias</title>  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">  
-  <link rel="stylesheet" href="../src/css/styles.css">  
+  <link rel="stylesheet" href="../../src/css/styles.css">  
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>  
+  @media print {  
+  .btn { display: none !important; }  
+  .table { font-size: 12px; }  
+  .card { page-break-inside: avoid; }  
+  }  
+  </style> -->
 </head>  
 <body>  
   
-  <main class="container mt-4">  
+  <main class="container mt-4"  id="contenido-pdf">  
     <?php  
-      require("../Config/Conexion.php");  
+      require("../../Config/Conexion.php");  
         
       // Obtener ID del empleado  
       $empleado_id = $_GET['Id'];  
@@ -39,6 +47,13 @@
       <strong>Estado:</strong> <?php echo $empleado['activo'] ? '<span class="badge bg-success">Activo</span>' : '<span class="badge bg-secondary">Inactivo</span>'; ?>  
     </div>  
   
+   
+   <!-- Botón que llama a la función con parámetros PHP -->  
+   <!-- <button onclick="generarPDF('<?php echo $empleado['nombre'].'_'.$empleado['apellido']; ?>', '<?php echo date('Y-m-d'); ?>')" class="btn btn-danger">  
+     <i class="bi bi-file-pdf"></i> Exportar PDF  
+   </button> -->
+
+
     <!-- Resumen de Horas por Período -->  
     <div class="row mb-4">  
       <?php  
@@ -152,6 +167,12 @@
       </div>  
     </div>  
   
+    <div class="card mb-4">  
+      <div class="card-body">  
+        <canvas id="horasChart"></canvas>  
+      </div>  
+    </div>
+
     <div class="table-container">  
       <table class="table table-hover">  
         <thead>  
@@ -199,7 +220,7 @@
 
             <!-- Bonton para eliminar -->
             <td class="acciones">  
-              <a href="../CRUD/eliminarAsistencia.php?Id=<?php echo $resultado['id']; ?>&EmpleadoId=<?php echo $empleado_id; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de eliminar este registro?')">  
+              <a href="../../CRUD/Empledo/eliminarAsistencia.php?Id=<?php echo $resultado['id']; ?>&EmpleadoId=<?php echo $empleado_id; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de eliminar este registro?')">  
                 <i class="bi bi-trash3"></i> Eliminar  
               </a>  
             </td>  
@@ -217,12 +238,19 @@
   
     <!-- Boton para regresar a empleados -->
     <div class="text-center mt-4">  
-      <a href="../empleado.php" class="btn btn-primary">  
+      <a href="../../empleado.php" class="btn btn-primary">  
         <i class="bi bi-arrow-left"></i> Volver a Empleados  
       </a>  
     </div>  
   </main>  
   
+  <!-- Incluir Chart -->
+  <?php include('../../src/includes/Chart.php'); ?>
+
+  <!-- Cargar el archivo JS externo -->  
+  <!-- <script src="../src/includes/html2pdf.js"></script>   -->
+  
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  
 </body>  
 </html>

@@ -8,7 +8,7 @@ if (!isset($_SESSION['temp_usuario_id'])) {
     exit();  
 }  
   
-include("../Config/Conexion.php");  
+include("../../Config/Conexion.php");  
   
 // Obtener información del usuario  
 $usuario_id = $_SESSION['temp_usuario_id'];  
@@ -37,7 +37,7 @@ $usuario = $resultado->fetch_assoc();
                           
                         <div class="alert alert-info" role="alert">  
                             <i class="bi bi-info-circle"></i>   
-                            Bienvenido, <strong><?php echo $usuario['nombre'] . ' ' . $usuario['apellido']; ?></strong>.   
+                            Bienvenido/a, <strong><?php echo $usuario['nombre'] . ' ' . $usuario['apellido']; ?></strong>.   
                             Por favor, establece una contraseña para tu cuenta.  
                         </div>  
                           
@@ -56,7 +56,7 @@ $usuario = $resultado->fetch_assoc();
                         }  
                         ?>  
                           
-                        <form action="../CRUD/guardarPassword.php" method="post" onsubmit="return validarPassword()">  
+                        <form action="../../CRUD/Login/guardarPassword.php" method="post" onsubmit="return validarPassword()">  
                             <input type="hidden" name="UsuarioId" value="<?php echo $usuario_id; ?>">  
                               
                             <div class="mb-3">  

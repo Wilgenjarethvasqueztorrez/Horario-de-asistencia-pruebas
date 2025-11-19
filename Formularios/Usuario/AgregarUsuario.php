@@ -9,7 +9,7 @@
 <body>  
     <h1 class="bg-primary p-2 text-white text-center">Agregar Usuario</h1>  
     <div class="container">  
-        <form action="../CRUD/insertarUsuario.php" method="post">  
+        <form action="../../CRUD/Usuario/insertarUsuario.php" method="post">  
               
             <!-- Nombre -->  
             <div class="mb-3">  
@@ -41,7 +41,7 @@
             <!-- Botones -->  
             <div class="text-center">  
                 <button type="submit" class="btn btn-primary">Registrar</button>  
-                <a href="../index.php" class="btn btn-dark">Cancelar</a>  
+                <a href="../../usuario.php" class="btn btn-dark">Cancelar</a>  
             </div>  
         </form>  
     </div>  

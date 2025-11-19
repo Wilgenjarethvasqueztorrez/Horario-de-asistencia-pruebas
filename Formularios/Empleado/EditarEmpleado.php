@@ -10,13 +10,13 @@
     <h1 class="bg-primary p-2 text-white text-center">Editar Empleado</h1>  
     <div class="container">  
         <?php  
-        include ('../Config/Conexion.php');  
+        include ('../../Config/Conexion.php');  
         $sql = "SELECT * FROM empleados WHERE id = " . $_GET['Id'];  
         $resultado = $conexion->query($sql);  
         $row = $resultado->fetch_assoc();  
         ?>  
           
-        <form action="../CRUD/editarEmpleado.php" method="post">  
+        <form action="../../CRUD/Empleado/editarEmpleado.php" method="post">  
             <input type="hidden" name="Id" value="<?php echo $row['id']; ?>">  
   
             <!-- Seleccionar usuario -->  
@@ -60,7 +60,7 @@
             <!-- Botones -->  
             <div class="text-center">  
                 <button type="submit" class="btn btn-primary">Actualizar</button>  
-                <a href="../empleado.php" class="btn btn-dark">Cancelar</a>  
+                <a href="../../empleado.php" class="btn btn-dark">Cancelar</a>  
             </div>  
         </form>  
     </div>  

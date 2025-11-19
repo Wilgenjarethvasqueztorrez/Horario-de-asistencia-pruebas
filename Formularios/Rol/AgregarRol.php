@@ -9,7 +9,7 @@
 <body>  
     <h1 class="bg-primary p-2 text-white text-center">Agregar Rol</h1>  
     <div class="container">  
-        <form action="../CRUD/insertarRol.php" method="post">  
+        <form action="../../CRUD/Rol/insertarRol.php" method="post">  
             <!-- Nombre del rol -->  
             <div class="mb-3">  
                 <label class="form-label">Nombre del Rol</label>  
@@ -27,7 +27,7 @@
             <select class="form-select mb-3" name="HorarioId">  
                 <option value="" selected>--Sin horario asignado--</option>  
                 <?php  
-                include ("../Config/Conexion.php");  
+                include ("../../Config/Conexion.php");  
                 $sql = $conexion->query("SELECT id, nombre, tipo FROM horarios ORDER BY nombre");  
                 while ($resultado = $sql->fetch_assoc()) {  
                     echo "<option value='".$resultado['id']."'>".$resultado['nombre']." (".$resultado['tipo'].")</option>";  
@@ -38,7 +38,7 @@
             <!-- Botones -->  
             <div class="text-center">  
                 <button type="submit" class="btn btn-primary">Registrar</button>  
-                <a href="../rol.php" class="btn btn-dark">Cancelar</a>  
+                <a href="../../rol.php" class="btn btn-dark">Cancelar</a>  
             </div>  
         </form>  
     </div>  

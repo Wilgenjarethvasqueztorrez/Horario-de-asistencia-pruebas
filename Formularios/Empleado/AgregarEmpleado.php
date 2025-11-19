@@ -8,13 +8,13 @@
 <body>  
     <h1 class="bg-primary p-2 text-white text-center">Agregar Empleado</h1>  
     <div class="container">  
-        <form action="../CRUD/insertarEmpleado.php" method="post">  
+        <form action="../../CRUD/Empleado/insertarEmpleado.php" method="post">  
             <!-- Seleccionar usuario -->  
             <label for="">Usuario del Sistema</label>  
             <select class="form-select mb-3" name="UsuarioId" required>  
                 <option selected disabled>--Seleccionar usuario--</option>  
                 <?php  
-                include ("../Config/Conexion.php");  
+                include ("../../Config/Conexion.php");  
                 $sql = $conexion->query("SELECT id, nombre, apellido, correo, rol_sistema   
                                          FROM usuarios  WHERE rol_sistema = 'Empleado' 
                                          ORDER BY nombre ASC");  
@@ -53,7 +53,7 @@
             <!-- Botones -->  
             <div class="text-center">  
                 <button type="submit" class="btn btn-primary">Registrar</button>  
-                <a href="../empleado.php" class="btn btn-dark">Cancelar</a>  
+                <a href="../../empleado.php" class="btn btn-dark">Cancelar</a>  
             </div>  
         </form>  
     </div>  

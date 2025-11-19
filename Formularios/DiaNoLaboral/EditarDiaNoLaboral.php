@@ -9,9 +9,9 @@
 <body>  
  <h1 class="bg-primary p-2 text-white text-center">Editar Día No Laboral</h1>  
  <br>  
- <form class="container" action="../CRUD/editarDiaNoLaboral.php" method="post">  
+ <form class="container" action="../../CRUD/DiaNoLaboral/editarDiaNoLaboral.php" method="post">  
   <?php  
-   include ('../Config/Conexion.php');  
+   include ('../../Config/Conexion.php');  
    $sql = "SELECT dias_no_laborales.*,   
                   usuarios.nombre,   
                   usuarios.apellido  
@@ -63,7 +63,7 @@
   <!-- Botones -->  
   <div class="text-center">  
     <button type="submit" class="btn btn-primary">Actualizar</button>  
-    <a href="../dia_no_laboral.php" class="btn btn-dark">Cancelar</a>  
+    <a href="../../dia_no_laboral.php" class="btn btn-dark">Cancelar</a>  
   </div>  
  </form>  
 </body>  

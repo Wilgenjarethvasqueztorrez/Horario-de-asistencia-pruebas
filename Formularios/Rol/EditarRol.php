@@ -9,9 +9,9 @@
 <body>  
  <h1 class="bg-primary p-2 text-white text-center">Editar Rol</h1>  
  <br>  
- <form class="container" action="../CRUD/editarRol.php" method="post">  
+ <form class="container" action="../../CRUD/Rol/editarRol.php" method="post">  
   <?php  
-   include ('../Config/Conexion.php');  
+   include ('../../Config/Conexion.php');  
    $sql = "SELECT * FROM roles WHERE id = " . $_GET['Id'];  
    $resultado = $conexion->query($sql);  
    $row = $resultado->fetch_assoc();  
@@ -46,7 +46,7 @@
   <!-- Botones -->  
   <div class="text-center">  
     <button type="submit" class="btn btn-primary">Actualizar</button>  
-    <a href="../rol.php" class="btn btn-dark">Cancelar</a>  
+    <a href="../../rol.php" class="btn btn-dark">Cancelar</a>  
   </div>  
  </form>  
 </body>  

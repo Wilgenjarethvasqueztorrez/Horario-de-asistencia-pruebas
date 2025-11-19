@@ -9,9 +9,9 @@
 <body>  
   <h1 class="bg-primary p-2 text-white text-center">Editar Usuario</h1>  
   <br>  
-  <form class="container" action="../CRUD/editarUsuario.php" method="post">  
+  <form class="container" action="../../CRUD/Usuario/editarUsuario.php" method="post">  
     <?php  
-    include ('../Config/Conexion.php');  
+    include ('../../Config/Conexion.php');  
       
     // Obtener datos del usuario  
     $sql = "SELECT id, nombre, apellido, correo, rol_sistema   
@@ -53,7 +53,7 @@
     <!-- Botones -->  
     <div class="text-center">  
       <button type="submit" class="btn btn-primary">Actualizar</button>  
-      <a href="../index.php" class="btn btn-dark">Cancelar</a>  
+      <a href="../../usuario.php" class="btn btn-dark">Cancelar</a>  
     </div>  
   </form>  
 </body>  

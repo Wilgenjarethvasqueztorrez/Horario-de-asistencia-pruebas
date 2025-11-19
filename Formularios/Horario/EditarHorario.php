@@ -10,9 +10,9 @@
 <body>  
  <h1 class="bg-primary p-2 text-white text-center">Editar Horario</h1>  
  <br>  
- <form class="container" action="../CRUD/editarHorario.php" method="post">  
+ <form class="container" action="../../CRUD/Horario/editarHorario.php" method="post">  
   <?php  
-   include ('../Config/Conexion.php');  
+   include ('../../Config/Conexion.php');  
    $sql = "SELECT * FROM horarios WHERE id = " . $_GET['Id'];  
    $resultado = $conexion->query($sql);  
    $row = $resultado->fetch_assoc();  
@@ -55,7 +55,7 @@
   <!-- Botones -->  
   <div class="text-center">  
    <button type="submit" class="btn btn-primary">Actualizar</button>  
-   <a href="../horario.php" class="btn btn-dark">Cancelar</a> 
+   <a href="../../horario.php" class="btn btn-dark">Cancelar</a> 
   </div>
  
  </form>

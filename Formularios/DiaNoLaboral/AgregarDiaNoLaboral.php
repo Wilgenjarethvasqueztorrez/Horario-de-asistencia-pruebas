@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">  
     <title>Agregar Día No Laboral</title>  
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">  
+    <!-- Agregar Flatpickr -->  
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">   -->
 </head>  
 <body>  
     <h1 class="bg-primary p-2 text-white text-center">Agregar Día No Laboral</h1>  
     <div class="container">  
-        <form action="../CRUD/insertarDiaNoLaboral.php" method="post">  
+        <form action="../../CRUD/DiaNoLaboral/insertarDiaNoLaboral.php" method="post">  
             <!-- Tipo de día no laboral -->  
             <label for="">Tipo</label>  
             <select class="form-select mb-3" name="Motivo" id="motivo" required onchange="toggleEmpleadoField()">  
@@ -24,7 +26,7 @@
                 <select class="form-select mb-3" name="EmpleadoId">  
                     <option selected disabled>--Seleccionar empleado--</option>  
                     <?php  
-                    include ("../Config/Conexion.php");  
+                    include ("../../Config/Conexion.php");  
                     $sql = $conexion->query("SELECT empleados.id,   
                                                     usuarios.nombre,   
                                                     usuarios.apellido,   
@@ -62,7 +64,7 @@
             <!-- Botones -->  
             <div class="text-center">  
                 <button type="submit" class="btn btn-primary">Registrar</button>  
-                <a href="../dia_no_laboral.php" class="btn btn-dark">Cancelar</a>  
+                <a href="../../dia_no_laboral.php" class="btn btn-dark">Cancelar</a>  
             </div>  
         </form>  
     </div>  
@@ -84,6 +86,10 @@
             }  
         }  
     </script>  
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  
+
+    <!-- Incluir Flatpickr -->  
+     <!-- <?php include('../../src/includes/Flatpickr.php'); ?> -->
+    
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  
 </body>  
 </html>
