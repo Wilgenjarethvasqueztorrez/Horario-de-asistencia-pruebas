@@ -13,10 +13,17 @@ verificarRol(['Administrador',]);
   <title>Roles</title>  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">  
+  <!--Dependencias-->
+  <!-- SweetAlert2 CSS -->  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">   
+
   <!-- CSS de DataTables -->  
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">  
   <!-- jQuery (requerido por DataTables) -->  
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>  
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> 
+  <!-- NUEVAS: DataTables Responsive -->  
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">  
+  
   <link rel="stylesheet" href="src/css/styles.css">  
 </head>  
 <body>  
@@ -29,7 +36,7 @@ verificarRol(['Administrador',]);
     <h1 class="bg-info p-3 text-white text-center rounded">📋 LISTADO DE ROLES</h1>  
   
     <div class="text-end mb-3">  
-      <a href="Formularios/AgregarRol.php" class="btn btn-success">  
+      <a href="Formularios/Rol/AgregarRol.php" class="btn btn-success">  
         <i class="bi bi-plus-circle"></i> Agregar Rol  
       </a>  
     </div>  
@@ -66,10 +73,10 @@ verificarRol(['Administrador',]);
               ?>  
             </td>  
             <td class="acciones">  
-              <a href="Formularios/EditarRol.php?Id=<?php echo $resultado['id']; ?>" class="btn btn-warning btn-sm">  
+              <a href="Formularios/Rol/EditarRol.php?Id=<?php echo $resultado['id']; ?>" class="btn btn-warning btn-sm">  
                 <i class="bi bi-pencil"></i> Editar  
               </a>  
-              <a href="CRUD/eliminarRol.php?Id=<?php echo $resultado['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de eliminar este rol? Los usuarios con este rol quedarán sin rol asignado.')">  
+              <a href="CRUD/Rol/eliminarRol.php?Id=<?php echo $resultado['id']; ?>" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirmarEliminacion(this.href)">  
                 <i class="bi bi-trash3"></i> Eliminar  
               </a>  
             </td>  
@@ -81,19 +88,10 @@ verificarRol(['Administrador',]);
   </main>  
   
   <!-- Inicializar DataTables -->
-  <!-- Primero: JavaScript de DataTables -->  
-  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>  
-  
-  <!-- Segundo: script de inicialización -->  
-  <script>  
-  $(document).ready(function() {  
-      $('#tabla').DataTable({  
-          "language": {  
-              "url": "//cdn.datatables.net/plug-ins/1.13.7/i18n/es-ES.json"  
-          }  
-      });  
-  });  
-  </script>  
+  <?php include('src/includes/datatables.php'); ?>
+
+  <!-- Inicializar SweetAlert2 -->  
+  <?php include('src/includes/sweetalert.php'); ?>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>  
