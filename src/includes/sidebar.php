@@ -57,7 +57,7 @@
     </li>  
       
     <li>  
-      <a href="dia_no_laboral.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'dias_no_laborales.php' ? 'active' : ''; ?>">  
+      <a href="dia_no_laboral.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'dia_no_laboral.php' ? 'active' : ''; ?>">  
         <i class="bi bi-calendar-x"></i>  
         <span>Días No Laborales</span>  
       </a>  
