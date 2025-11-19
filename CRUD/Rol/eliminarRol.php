@@ -1,5 +1,5 @@
 <?php  
-include("../Config/Conexion.php");  
+include("../../Config/Conexion.php");  
   
 // Recibir el ID del rol a eliminar  
 $id = $_GET['Id'];  
@@ -8,7 +8,7 @@ $id = $_GET['Id'];
 $sql = "DELETE FROM roles WHERE id=$id";  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../rol.php?success=eliminado");  
+    header("location:../../rol.php?success=eliminado");  
 } else {  
-    header("location:../rol.php?error=db");  
+    header("location:../../rol.php?error=db");  
 }

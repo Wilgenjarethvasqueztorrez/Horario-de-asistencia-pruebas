@@ -1,5 +1,5 @@
 <?php  
-include("../Config/Conexion.php");  
+include("../../Config/Conexion.php");  
   
 $id = $_POST['Id'];  
 $motivo = $_POST['Motivo'];  
@@ -20,7 +20,7 @@ if ($empleado_id === NULL) {
 }  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../dia_no_laboral.php?success=editado");  
+    header("location:../../dia_no_laboral.php?success=editado");  
 } else {  
-    header("location:../dia_no_laboral.php?error=db");  
+    header("location:../../dia_no_laboral.php?error=db");  
 }

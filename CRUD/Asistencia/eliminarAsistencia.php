@@ -1,5 +1,5 @@
 <?php  
-include("../Config/Conexion.php");  
+include("../../Config/Conexion.php");  
   
 // Recibir el ID de la asistenca a eliminar  
 $id = $_GET['Id'];  
@@ -8,7 +8,7 @@ $id = $_GET['Id'];
 $sql = "DELETE FROM asistencias WHERE id=$id";  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../asistencia.php?success=eliminado");  
+    header("location:../../asistencia.php?success=eliminado");  
 } else {  
-    header("location:../asistencia.php?error=db");  
+    header("location:../../asistencia.php?error=db");  
 }

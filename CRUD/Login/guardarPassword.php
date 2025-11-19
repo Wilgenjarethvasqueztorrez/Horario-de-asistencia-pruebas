@@ -1,10 +1,10 @@
 <?php  
 session_start();  
-include("../Config/Conexion.php");  
+include("../../Config/Conexion.php");  
   
 // Verificar que existe la sesión temporal  
 if (!isset($_SESSION['temp_usuario_id'])) {  
-    header("location: ../login.php");  
+    header("location: ../../login.php");  
     exit();  
 }  
   
@@ -15,13 +15,13 @@ $confirmar_password = $_POST['ConfirmarPassword'];
   
 // Validar que las contraseñas coincidan  
 if ($password !== $confirmar_password) {  
-    header("location: ../Formularios/establecerPassword.php?error=no_coinciden");  
+    header("location: ../../Formularios/Login/establecerPassword.php?error=no_coinciden");  
     exit();  
 }  
   
 // Validar longitud mínima  
 if (strlen($password) < 6) {  
-    header("location: ../Formularios/establecerPassword.php?error=muy_corta");  
+    header("location: ../../Formularios/Login/establecerPassword.php?error=muy_corta");  
     exit();  
 }  
   
@@ -52,13 +52,13 @@ if (mysqli_query($conexion, $sql)) {
       
     // Redirigir según el rol  
     if ($usuario['rol_sistema'] == 'Administrador') {  
-        header("location: ../index.php");  
+        header("location: ../../index.php");  
     } else {  
-        header("location: ../empleado.php");  
+        header("location: ../../empleado.php");  
     }  
     exit();  
 } else {  
     // Error al guardar  
-    header("location: ../Formularios/establecerPassword.php?error=db");  
+    header("location: ../../Formularios/Login/establecerPassword.php?error=db");  
     exit();  
 }  

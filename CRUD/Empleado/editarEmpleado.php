@@ -1,5 +1,5 @@
 <?php  
-include("../Config/Conexion.php");  
+include("../../Config/Conexion.php");  
   
 $id = $_POST['Id'];  
 $usuario_id = $_POST['UsuarioId'];  
@@ -11,7 +11,7 @@ $sql = "UPDATE empleados
         WHERE id=$id";  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../empleado.php?success=editado");  
+    header("location:../../empleado.php?success=editado");  
 } else {  
-    header("location:../empleado.php?error=db");  
+    header("location:../../empleado.php?error=db");  
 }

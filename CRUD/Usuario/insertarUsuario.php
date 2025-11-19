@@ -1,5 +1,5 @@
 <?php  
-include("../Config/Conexion.php");  
+include("../../Config/Conexion.php");  
   
 // Recibir datos del formulario  
 $nombre = $_POST['NombreUsuario'];  
@@ -12,8 +12,8 @@ $sql = "INSERT INTO usuarios (nombre, apellido, correo, rol_sistema)
         VALUES ('$nombre', '$apellido', '$correo', '$rol_sistema')";  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../usuario.php?success=agregado");  
+    header("location:../../usuario.php?success=agregado");  
 } else {  
-    header("location:../usuario.php?error=db");  
+    header("location:../../usuario.php?error=db");  
 }
 

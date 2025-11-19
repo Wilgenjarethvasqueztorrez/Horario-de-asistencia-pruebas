@@ -1,5 +1,5 @@
 <?php  
-include("../Config/Conexion.php");  
+include("../../Config/Conexion.php");  
   
 // Recibir datos del formulario  
 $id = $_POST['Id'];  
@@ -15,7 +15,7 @@ $sql = "UPDATE roles
         WHERE id=$id";  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../rol.php?success=editado");  
+    header("location:../../rol.php?success=editado");  
 } else {  
-    header("location:../rol.php?error=db");  
+    header("location:../../rol.php?error=db");  
 }

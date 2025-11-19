@@ -1,5 +1,5 @@
 <?php  
-include("../Config/Conexion.php");  
+include("../../Config/Conexion.php");  
   
 // Recibir datos del formulario  
 $id = $_POST['Id'];  
@@ -21,9 +21,9 @@ if ($tipo == 'Flexible') {
 }  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../horario.php?success=editado");  
+    header("location:../../horario.php?success=editado");  
 } else {  
-    header("location:../horario.php?error=db");  
+    header("location:../../horario.php?error=db");  
 }
 
 

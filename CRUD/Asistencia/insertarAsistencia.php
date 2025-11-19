@@ -1,5 +1,5 @@
 <?php  
-include("../Config/Conexion.php");  
+include("../../Config/Conexion.php");  
   
 // Recibir datos del formulario  
 $empleado_id = $_POST['EmpleadoId'];  
@@ -18,7 +18,7 @@ if ($hora_salida === NULL) {
 }  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../asistencia.php?success=agregado");  
+    header("location:../../asistencia.php?success=agregado");  
 } else {  
-    header("location:../asistencia.php?error=db");  
+    header("location:../../asistencia.php?error=db");  
 }

@@ -1,6 +1,6 @@
 <?php  
 session_start();  
-include("../Config/Conexion.php");  
+include("../../Config/Conexion.php");  
   
 $correo = $_POST['Correo'];  
 $password = $_POST['Password'];  
@@ -18,7 +18,7 @@ if ($resultado->num_rows > 0) {
     if ($usuario['password'] === NULL || $usuario['password'] === '') {  
         // Usuario sin contraseña - redirigir a establecer contraseña  
         $_SESSION['temp_usuario_id'] = $usuario['id'];  
-        header("location: ../Formularios/establecerPassword.php");  
+        header("location: ../../Formularios/Login/establecerPassword.php");  
         exit();  
     }  
       
@@ -32,16 +32,16 @@ if ($resultado->num_rows > 0) {
         $_SESSION['usuario_rol'] = $usuario['rol_sistema'];  
           
         if ($usuario['rol_sistema'] == 'Administrador') {  
-            header("location: ../index.php");  
+            header("location:../../index.php");  
         } else {  
-            header("location: ../empleado.php");  
+            header("location:../../empleado.php");  
         }  
         exit();  
     } else {  
-        header("location: ../login.php?error=credenciales");  
+        header("location:../../Formularios/Login/login.php?error=credenciales");  
         exit();  
     }  
 } else {  
-    header("location: ../login.php?error=credenciales");  
+    header("location:../../Formularios/Login/login.php?error=credenciales");  
     exit();  
 }  

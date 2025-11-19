@@ -1,5 +1,5 @@
 <?php  
-include("../Config/Conexion.php");  
+include("../../Config/Conexion.php");  
   
 $usuario_id = $_POST['UsuarioId'];  
 $rol_id = $_POST['RolId'];  
@@ -9,7 +9,7 @@ $sql = "INSERT INTO empleados (empleado_id, rol_id, activo)
         VALUES ($usuario_id, $rol_id, $activo)";  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../empleado.php?success=agregado");  
+    header("location:../../empleado.php?success=agregado");  
 } else {  
-    header("location:../empleado.php?error=db");  
+    header("location:../../empleado.php?error=db");  
 }

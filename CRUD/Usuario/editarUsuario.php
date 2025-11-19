@@ -1,5 +1,5 @@
 <?php  
-include("../Config/Conexion.php");  
+include("../../Config/Conexion.php");  
   
 // Recibir datos del formulario  
 $id = $_POST['Id'];  
@@ -17,7 +17,7 @@ $sql = "UPDATE usuarios
         WHERE id=$id";  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../usuario.php?success=editado");  
+    header("location:../../usuario.php?success=editado");  
 } else {  
-    header("location:../usuario.php?error=db");  
+    header("location:../../usuario.php?error=db");  
 }

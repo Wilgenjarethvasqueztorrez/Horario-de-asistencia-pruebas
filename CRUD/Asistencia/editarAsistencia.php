@@ -1,5 +1,5 @@
 <?php  
-include("../Config/Conexion.php");  
+include ("../../Config/Conexion.php");  
   
 $id = $_POST['Id'];  
 $empleadoId = $_POST['EmpleadoId'];  
@@ -28,7 +28,7 @@ if (empty($horaSalida)) {
 }  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../asistencia.php?success=editado");  
+    header("location:../../asistencia.php?success=editado");  
 } else {  
-    header("location:../asistencia.php?error=db");  
+    header("location:../../asistencia.php?error=db");  
 }
