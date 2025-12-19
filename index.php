@@ -41,10 +41,10 @@ $totalAsistenciasSemana = $conexion->query("SELECT COUNT(*) as total FROM asiste
 
 <body>  
 
-  <?php include('src/includes/sidebar.php'); ?>  
+  <?php include('src/includes/Componentes/sidebar.php'); ?>  
 
   <main class="container py-4">  
-    <?php include('src/includes/userbar.php'); ?> 
+    <?php include('src/includes/Componentes/userbar.php'); ?> 
   
     <h1 class="bg-primary p-3 text-white text-center rounded">📊 DASHBOARD DEL SISTEMA</h1>        
 

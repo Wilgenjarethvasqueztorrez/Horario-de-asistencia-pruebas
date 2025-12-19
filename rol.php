@@ -28,10 +28,10 @@ verificarRol(['Administrador',]);
 </head>  
 <body>  
   
-  <?php include('src/includes/sidebar.php'); ?>  
+  <?php include('src/includes/Componentes/sidebar.php'); ?>  
 
   <main class="container mt-4"> 
-    <?php include('src/includes/userbar.php'); ?>
+    <?php include('src/includes/Componentes/userbar.php'); ?>
   
     <h1 class="bg-info p-3 text-white text-center rounded">📋 LISTADO DE ROLES</h1>  
   
@@ -88,10 +88,10 @@ verificarRol(['Administrador',]);
   </main>  
   
   <!-- Inicializar DataTables -->
-  <?php include('src/includes/datatables.php'); ?>
+  <?php include('src/includes/Dependencias/datatables.php'); ?>
 
   <!-- Inicializar SweetAlert2 -->  
-  <?php include('src/includes/sweetalert.php'); ?>
+  <?php include('src/includes/Dependencias/sweetalert.php'); ?>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>  
