@@ -4,7 +4,7 @@ include("../../Config/Conexion.php");
   
 // Verificar que existe la sesión temporal  
 if (!isset($_SESSION['temp_usuario_id'])) {  
-    header("location: ../../login.php");  
+    header("location: ../../Formularios/Login/login.php");  
     exit();  
 }  
   
@@ -50,13 +50,15 @@ if (mysqli_query($conexion, $sql)) {
     $_SESSION['usuario_correo'] = $usuario['correo'];  
     $_SESSION['usuario_rol'] = $usuario['rol_sistema'];  
       
-    // Redirigir según el rol  
-    if ($usuario['rol_sistema'] == 'Administrador') {  
-        header("location: ../../index.php");  
-    } else {  
-        header("location: ../../empleado.php");  
-    }  
-    exit();  
+        // Redirigir según el rol  
+        if ($usuario['rol_sistema'] == 'Administrador') {    
+            header("location: ../../index.php");    
+         } elseif ($usuario['rol_sistema'] == 'Oficina') {    
+            header("location: ../../empleado.php");    
+         } else {  // Empleado  
+            header("location: ../../perfil_empleado.php");    
+        }    
+        exit();
 } else {  
     // Error al guardar  
     header("location: ../../Formularios/Login/establecerPassword.php?error=db");  
