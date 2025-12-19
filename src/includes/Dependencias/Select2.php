@@ -3,9 +3,17 @@
 <script>  
     $(document).ready(function() {  
         // Inicializar todos los selects con Select2  
-        $('select').select2({  
-            width: '100%', 
-             
+        $('#select2').select2({  
+            width: 'resolve',  
+            language: "es"  
+        });  
+
+        $('#select2-rol').select2({  
+            width: 'resolve', 
+            language: "es"  
+        });  
+        $('#select2-empleado').select2({  
+            width: 'resolve', 
             language: "es"  
         });  
     });  
