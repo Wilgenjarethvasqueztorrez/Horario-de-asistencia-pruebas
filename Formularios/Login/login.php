@@ -1,11 +1,17 @@
 <?php  
 session_start();  
   
-// Si ya está logueado, redirigir a index.php  
+// Si ya está logueado, redirigir según rol  
 if (isset($_SESSION['usuario_id'])) {  
-    header("location: index.php");  
+    if ($_SESSION['usuario_rol'] == 'Administrador') {  
+        header("location:../../index.php");  
+    } elseif ($_SESSION['usuario_rol'] == 'Oficina') {  
+        header("location:../../empleado.php");  
+    } else {  // Empleado  
+        header("location:../../perfil_empleado.php");  
+    }  
     exit();  
-}  
+}
 ?>  
 <!DOCTYPE html>  
 <html lang="es">  

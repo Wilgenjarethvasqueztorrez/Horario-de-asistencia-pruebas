@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">  
     <!-- Agregar Select2 -->  
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />  
+    <link rel="stylesheet" href="../../src/css/styles.css" />
 </head>
 <body>  
     <h1 class="bg-primary p-2 text-white text-center">Registrar Asistencia</h1>  
@@ -16,7 +17,7 @@
         <form action="../../CRUD/Asistencia/insertarAsistencia.php" method="post">  
             <!-- Seleccionar empleado -->  
             <label for="">Empleado</label>  
-            <select class="form-select mb-3" name="EmpleadoId" required>  
+            <select id="select2" class="form-select mb-3" name="EmpleadoId" required>  
                 <option selected disabled>--Seleccionar empleado--</option>  
                 <?php  
                 include ("../../Config/Conexion.php");  
@@ -98,9 +99,9 @@
     </div>  
 
     <!-- Incluir Flatpickr -->
-    <!-- <?php include('../../src/includes/Flatpickr.php'); ?>  -->
+    <?php include('../../src/includes/Dependencias/Flatpickr.php'); ?> 
     <!-- Incluir Select2 -->
-    <!-- <?php include('../../src/includes/Select2.php'); ?> -->
+    <?php include('../../src/includes/Dependencias/Select2.php'); ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  
 </body>  

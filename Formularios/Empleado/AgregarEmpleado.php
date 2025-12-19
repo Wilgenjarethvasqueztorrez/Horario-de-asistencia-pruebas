@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">  
     <title>Agregar Empleado</title>  
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">  
+    <!-- Agregar Select2 -->  
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />  
+    <link rel="stylesheet" href="../../src/css/styles.css" />
+</head>
 <body>  
     <h1 class="bg-primary p-2 text-white text-center">Agregar Empleado</h1>  
     <div class="container">  
         <form action="../../CRUD/Empleado/insertarEmpleado.php" method="post">  
             <!-- Seleccionar usuario -->  
             <label for="">Usuario del Sistema</label>  
-            <select class="form-select mb-3" name="UsuarioId" required>  
+            <select id="select2" class="form-select mb-3" name="UsuarioId" required>  
                 <option selected disabled>--Seleccionar usuario--</option>  
                 <?php  
                 include ("../../Config/Conexion.php");  
@@ -28,7 +32,7 @@
   
             <!-- Seleccionar rol laboral -->  
             <label for="">Rol Laboral</label>  
-            <select class="form-select mb-3" name="RolId" required>  
+            <select id="select2-rol" class="form-select mb-3" name="RolId" required>  
                 <option selected disabled>--Seleccionar rol laboral--</option>  
                 <?php  
                 $sqlRol = $conexion->query("SELECT roles.id, roles.nombre, roles.descripcion, horarios.nombre as horario_nombre   
@@ -57,5 +61,8 @@
             </div>  
         </form>  
     </div>  
+
+    <!-- Incluir Select2 -->
+    <?php include('../../src/includes/Dependencias/Select2.php'); ?>
 </body>  
 </html>

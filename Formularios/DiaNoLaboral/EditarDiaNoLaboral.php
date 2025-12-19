@@ -1,10 +1,15 @@
 <!doctype html>  
 <html lang="es">  
 <head>  
-   <meta charset="UTF-8">  
-   <meta name="viewport" content="width=device-width, initial-scale=1">  
-   <title>Editar Día No Laboral</title>  
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <title>Editar Día No Laboral</title>  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">  
+  <!-- Agregar Flatpickr -->  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css"> 
+  <!-- Agregar Select2 -->  
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> 
+  <link rel="stylesheet" href="../../src/css/styles.css">
 </head>  
 <body>  
  <h1 class="bg-primary p-2 text-white text-center">Editar Día No Laboral</h1>  
@@ -66,5 +71,11 @@
     <a href="../../dia_no_laboral.php" class="btn btn-dark">Cancelar</a>  
   </div>  
  </form>  
+
+  <!-- Incluir Flatpickr -->  
+  <?php include('../../src/includes/Dependencias/Flatpickr.php'); ?>
+  <!-- Incluir Select2 -->
+  <?php include('../../src/includes/Dependencias/Select2.php'); ?>
+
 </body>  
 </html>

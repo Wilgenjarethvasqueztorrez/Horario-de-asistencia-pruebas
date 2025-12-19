@@ -4,7 +4,7 @@ session_start();
 // Verificar que existe una sesión temporal con el ID del usuario  
 if (!isset($_SESSION['temp_usuario_id'])) {  
     // Si no hay sesión temporal, redirigir al login  
-    header("location: login.php");  
+    header("location: ../../Formularios/Login/login.php");  
     exit();  
 }  
   
