@@ -1,311 +1,737 @@
-/* General */
-body {
-  background: linear-gradient(to right, #e0f7fa, #f1f8e9);
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-/* Encabezado */
-h1 {
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-top: 20px;
-}
-
-/* Contenedor de tabla */
-.table-container {
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  /* Asegura visibilidad */
-  overflow-x: auto;
-  transition: box-shadow 0.3s ease;
-}
-
-/* Tabla */
-.table th,
-.table td {
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
-.table thead {
-  background-color: #00796b;
-  color: white;
-}
-
-.table tbody tr:hover {
-  background-color: #e0f2f1;
-}
-
-/* Nombre y apellido */
-.nombre-apellido {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-/* Botones */
-.btn svg {
-  margin-right: 4px;
-  vertical-align: middle;
-}
-
-.acciones a {
-  margin-right: 5px;
-}
-
-/*Barra de usuario logeado*/
-.user-header-bar {  
-  display: flex;  
-  justify-content: space-between;  
-  align-items: center;  
-  padding: 1rem 1.5rem;  
-  margin-bottom: 1.5rem;  
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  
-  border-radius: 12px;  
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);  
+/* ============================================  
+   ESTILOS GENERALES  
+   ============================================ */  
+  
+/* General */  
+body {  
+  background-color: #1c1f33; /* Fondo cósmico */    
+  color: #d4d4f5; /* Blanco azulado */    
+  font-family: 'Segoe UI', sans-serif;  
+  margin: 0;  
+  padding: 0;  
 }  
   
-.user-info-section {  
-  display: flex;  
-  align-items: center;  
-  gap: 1rem;  
+/* Encabezado */  
+h1 {  
+  font-weight: bold;  
+  letter-spacing: 1px;  
+  margin-top: 20px;  
 }  
   
-.user-avatar {  
-  font-size: 2.5rem;  
-  color: white;  
-  display: flex;  
-  align-items: center;  
+h1, h2, h3, h4, h5, h6 {    
+  color: #ffeaa7 !important; /* Dorado */    
 }  
   
-.user-details {  
+/* Texto muted */  
+.text-muted {  
+  color: rgba(212, 212, 245, 0.65) !important; /* Color suave y legible sobre fondo oscuro */  
+  opacity: 1; /* Garantiza que el color no se "desvanezca" más de lo esperado */  
+}
+
+/* ============================================  
+   TABLAS GENERALES  
+   ============================================ */  
+  
+/* Contenedor de tablas */    
+.table-container {    
+  background-color: #2c3b5c !important; /* Fondo azul oscuro */    
+  border-radius: 10px;    
+  padding: 20px;    
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);    
+  border: 1px solid rgba(255, 234, 167, 0.3);    
+}  
+  
+/* Tablas */    
+.table {    
+  background-color: transparent !important;    
+  color: #d4d4f5 !important;    
+}  
+  
+.table thead th {    
+  background-color: #364775 !important; /* Azul más claro */    
+  color: #ffeaa7 !important; /* Dorado */    
+  border-bottom: 2px solid #ffeaa7 !important;    
+  font-weight: bold;    
+}  
+  
+/* Filas de datos */    
+.table tbody tr {    
+    background-color: rgba(44, 59, 92, 0.3) !important;    
+    border-bottom: 1px solid rgba(255, 234, 167, 0.1) !important;    
+    transition: all 0.3s ease !important;    
+}  
+  
+.table tbody tr:hover {    
+    background-color: rgba(255, 234, 167, 0.15) !important;    
+    transform: translateX(3px) !important;    
+    box-shadow: 0 2px 8px rgba(255, 234, 167, 0.2) !important;    
+}  
+  
+/* Celdas de datos */    
+.table tbody td {    
+    background-color: transparent !important;    
+    color: #d4d4f5 !important;    
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;    
+    padding: 12px 8px !important;    
+    vertical-align: middle !important;    
+}  
+  
+/* Estados especiales */    
+.table tbody tr:nth-child(even) {    
+    background-color: rgba(44, 59, 92, 0.4) !important;    
+}  
+  
+/* Celdas con texto importante */    
+.table tbody td strong {    
+    color: #ffeaa7 !important;    
+}  
+  
+/* Celdas con horas o fechas */    
+.table tbody td:contains("hrs"),    
+.table tbody td:contains("/") {    
+    font-family: 'Courier New', monospace !important;    
+    color: #b8b8d8 !important;    
+}  
+  
+.table .badge {    
+    padding: 5px 10px !important;    
+    font-weight: 500 !important;    
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;    
+}  
+  
+/* Nombre y apellido */  
+.nombre-apellido {  
   display: flex;  
   flex-direction: column;  
-  gap: 0.25rem;  
+  gap: 4px;  
+}
+
+#tabla-vacaciones .acciones {  
+  padding: 4px !important;  
+  white-space: nowrap;  
 }  
   
-.welcome-text {  
-  color: rgba(255, 255, 255, 0.8);  
-  font-size: 0.875rem;  
-  font-weight: 400;  
+/* ============================================  
+   DASHBOARD  
+   ============================================ */  
+  
+.card {  
+  border: none;  
+  border-radius: 12px;  
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);  
+  transition: all 0.2s ease-in-out;  
 }  
   
-.user-name {  
-  color: white;  
-  font-size: 1.125rem;  
+.card:hover {  
+  transform: translateY(-4px);  
+  box-shadow: 0 5px 12px rgba(0,0,0,0.15);  
+}  
+  
+/* Contenedores de tablas del dashboard */    
+.dashboard-table-container {    
+    background-color: rgba(44, 59, 92, 0.4) !important;    
+    border-radius: 12px !important;    
+    padding: 20px !important;    
+    margin-bottom: 20px !important;    
+    border: 1px solid rgba(255, 234, 167, 0.2) !important;    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;    
+}  
+  
+/* Tablas específicas del dashboard */    
+.dashboard-table-container .table {    
+    background-color: transparent !important;    
+    color: #d4d4f5 !important;    
+    margin-bottom: 0 !important;    
+}  
+  
+/* Encabezados de tablas del dashboard */    
+.dashboard-table-container .table thead th {    
+    background-color: rgba(54, 71, 117, 0.8) !important;    
+    color: #ffeaa7 !important;    
+    border: none !important;    
+    padding: 15px 12px !important;    
+    font-weight: 600 !important;    
+    text-transform: uppercase !important;    
+    font-size: 0.85rem !important;    
+    letter-spacing: 0.5px !important;    
+}  
+  
+/* Filas de datos en tablas del dashboard */    
+.dashboard-table-container .table tbody tr {    
+    background-color: rgba(28, 31, 51, 0.3) !important;    
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;    
+    transition: all 0.3s ease !important;    
+}  
+  
+.dashboard-table-container .table tbody tr:hover {    
+    background-color: rgba(255, 234, 167, 0.1) !important;    
+    transform: translateX(5px) !important;    
+    box-shadow: 0 2px 10px rgba(255, 234, 167, 0.15) !important;    
+}  
+  
+/* Celdas de datos */    
+.dashboard-table-container .table tbody td {    
+    background-color: transparent !important;    
+    color: #d4d4f5 !important;    
+    border: none !important;    
+    padding: 12px !important;    
+    vertical-align: middle !important;    
+}  
+  
+/* Texto fuerte en celdas */    
+.dashboard-table-container .table tbody td strong {    
+    color: #ffeaa7 !important;    
+    font-weight: 600 !important;    
+}  
+  
+/* Badges en tablas del dashboard */    
+.dashboard-table-container .badge {    
+    padding: 6px 12px !important;    
+    font-weight: 500 !important;    
+    font-size: 0.8rem !important;    
+    border-radius: 6px !important;    
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;    
+}  
+  
+.dashboard-table-container .badge.bg-success {    
+    background: linear-gradient(135deg, #00b894, #00cec9) !important;    
+    color: white !important;    
+}  
+  
+.dashboard-table-container .badge.bg-warning {    
+    background: linear-gradient(135deg, #fdcb6e, #f39c12) !important;    
+    color: #2d3436 !important;    
+}  
+  
+.dashboard-table-container .badge.bg-danger {    
+    background: linear-gradient(135deg, #d63031, #e17055) !important;    
+    color: white !important;    
+}  
+  
+/* Estados especiales para tabla de empleados trabajando */    
+.dashboard-table-container .table tbody tr:nth-child(even) {    
+    background-color: rgba(44, 59, 92, 0.4) !important;    
+}  
+  
+/* Texto muted en tablas */    
+.dashboard-table-container .text-muted {    
+    color: rgba(212, 212, 245, 0.5) !important;    
+    font-style: italic !important;    
+}
+
+/* ============================================  
+   BOTONES  
+   ============================================ */  
+  
+.btn {    
+    background: linear-gradient(90deg, #715aff, #394a96) !important;    
+    border: none !important;    
+    color: white !important;    
+    font-weight: 500;    
+    transition: all 0.3s ease;    
+}  
+  
+.btn:hover {    
+    background: linear-gradient(90deg, #ffeaa7, #715aff) !important;    
+    transform: scale(1.05);  
+    box-shadow: 0px 0px 10px #ffeaa7 !important;    
+    color: #1c1f33 !important;    
+}  
+  
+.btn-success {    
+    background: linear-gradient(90deg, #00b894, #00cec9) !important;    
+}  
+  
+.btn-danger {    
+    background: linear-gradient(90deg, #d63031, #e17055) !important;    
+}  
+  
+.btn-warning {    
+    background: linear-gradient(90deg, #fdcb6e, #f39c12) !important;    
+    color: #2d3436 !important;    
+}  
+  
+.btn svg {  
+  margin-right: 4px;  
+  vertical-align: middle;  
+}  
+  
+.acciones a {  
+  margin-right: 5px;  
+}
+
+/* ============================================  
+   FORMULARIOS  
+   ============================================ */  
+  
+.form-control, .form-select {  
+  background-color: rgba(44, 59, 92, 0.9) !important;  
+  border: 2px solid rgba(255, 234, 167, 0.4) !important;  
+  color: #d4d4f5 !important;  
+}  
+  
+.form-control:focus, .form-select:focus {  
+  background-color: rgba(44, 59, 92, 1) !important;  
+  border-color: #ffeaa7 !important;  
+  box-shadow: 0 0 0 0.3rem rgba(255, 234, 167, 0.3) !important;  
+  color: #ffffff !important;  
+}  
+  
+.form-label {  
+  color: #ffeaa7 !important;  
   font-weight: 600;  
-  line-height: 1.2;  
 }  
   
-.role-badge {  
-  background: rgba(255, 255, 255, 0.2);  
-  color: white;  
-  padding: 0.25rem 0.75rem;  
-  border-radius: 20px;  
-  font-size: 0.75rem;  
-  font-weight: 500;  
-  backdrop-filter: blur(10px);  
-  border: 1px solid rgba(255, 255, 255, 0.3);  
-  width: fit-content;  
+.form-control::placeholder {  
+    color: rgba(212, 212, 245, 0.55);  
+    opacity: 1; /* Firefox */  
+}
+
+/* ============================================  
+   SELECT2  
+   ============================================ */  
+  
+.select2-container {    
+    width: 100% !important;    
 }  
   
-.btn-logout {  
-  background: rgba(255, 255, 255, 0.15);  
+.select2-selection {    
+    min-height: 38px !important;    
+    padding: 0.375rem 0.75rem !important;    
+    font-size: 1rem !important;    
+    line-height: 1.5 !important;    
+    border: 1px solid #ced4da !important;    
+    border-radius: 0.25rem !important;    
+    background-color: #1c1f33 !important; /* fondo oscuro */  
+    color: #d4d4f5 !important; /* texto */  
+}  
+  
+.select2-selection__rendered {    
+    padding: 0 !important;    
+    line-height: 1.5 !important;    
+    color: #d4d4f5 !important;  
+}  
+  
+.select2-selection__arrow {    
+    height: 36px !important;    
+}  
+  
+.select2-selection__arrow b {  
+    border-color: #ffeaa7 transparent transparent transparent !important; /* dorado */  
+}  
+  
+.select2-container--default.select2-container--focus .select2-selection--single {  
+    border-color: #ffeaa7 !important;  
+    background-color: #2c3b5c !important; /* azul oscuro */  
+}  
+  
+/* Dropdown */  
+.select2-dropdown {  
+    background-color: #1c1f33 !important;  
+    border: 1px solid #ffeaa7 !important;  
+}  
+  
+/* Campo de búsqueda */  
+.select2-search--dropdown .select2-search__field {  
+    background-color: #2c3b5c !important;  
+    border: 1px solid #ffeaa7 !important;  
+    color: #d4d4f5 !important;  
+}  
+  
+/* Opciones */  
+.select2-results__option {  
+    color: #d4d4f5 !important;  
+}  
+  
+.select2-results__option--highlighted {  
+    background-color: rgba(255, 234, 167, 0.2) !important;  
+    color: #1c1f33 !important;  
+}  
+  
+.select2-results__option[aria-selected="true"] {  
+    background-color: rgba(255, 234, 167, 0.15) !important;  
+    color: #1c1f33 !important;  
+}  
+  
+/* Select2 múltiple */  
+.select2-container--default .select2-selection--multiple {  
+    background-color: #1c1f33 !important;  
+    border: 1px solid #ffeaa7 !important;  
+}  
+  
+.select2-container--default .select2-selection--multiple .select2-selection__choice {  
+    background: #715aff !important;  
+    border: 1px solid #ffeaa7 !important;  
+    color: white !important;  
+}  
+  
+/* Placeholder */  
+.select2-container--default .select2-selection--placeholder {  
+    color: rgba(212, 212, 245, 0.5) !important;  
+}
+
+/* ============================================  
+   ALERTS  
+   ============================================ */  
+  
+.alert {  
+  border: 2px solid rgba(255, 234, 167, 0.4) !important;  
+}  
+  
+.alert-info {  
+  background-color: rgba(3, 169, 244, 0.2) !important;  
+  color: #03a9f4 !important;  
+}  
+  
+.alert-success {  
+  background-color: rgba(0, 206, 201, 0.2) !important;  
+  color: #00cec9 !important;  
+}  
+  
+.alert-warning {  
+  background-color: rgba(255, 234, 167, 0.2) !important;  
+  color: #ffeaa7 !important;  
+}  
+  
+.alert-danger {  
+  background-color: rgba(225, 112, 85, 0.2) !important;  
+  color: #e17055 !important;  
+}  
+  
+/* ============================================  
+   TABS  
+   ============================================ */  
+  
+.nav-tabs {  
+    border-bottom: 1px solid #eee; /* Separa las tabs del contenido */  
+}  
+  
+.nav-tabs .nav-link {  
+    color: rgba(212, 212, 245, 0.8); /* Color de texto suave */  
+    background-color: #1c1f33; /* Fondo oscuro de la tab */  
+    border-color: #2c3b5c; /* Borde del tab */  
+}  
+  
+.nav-tabs .nav-link:hover {  
+    color: #ffeaa7; /* Tono dorado cuando pasa el cursor */  
+    background-color: #2c3b5c; /* Fondo ligeramente más claro en hover */  
+}  
+  
+.nav-tabs .nav-link.active {  
+    color: #ffeaa7 !important; /* Dorado en el tab activo */  
+    background-color: #2c3b5c !important; /* Fondo azul oscuro en el tab activo */  
+    border-color: #ffeaa7 !important; /* Borde dorado para resaltar el tab activo */  
+}
+
+/* ============================================  
+   SIDEBAR  
+   ============================================ */  
+  
+.sidebar {  
+  background-color: #1c1f33 !important; /* fondo cósmico */  
+  border-right: 2px solid rgba(255, 234, 167, 0.4); /* línea dorada */  
+  position: fixed;  
+  top: 0;  
+  left: -250px;  
+  width: 250px;  
+  height: 100vh;  
+  background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);  
+  transition: left 0.3s ease;  
+  z-index: 1000;  
+  overflow-y: auto;  
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);  
+}  
+  
+.sidebar.active {  
+  left: 0;  
+}  
+  
+
+.sidebar-header {  
+  padding: 20px;  
+  background: rgba(0, 0, 0, 0.2);  
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);  
+}  
+  
+.sidebar-header h3 {  
   color: white;  
-  border: 1px solid rgba(255, 255, 255, 0.3);  
-  padding: 0.5rem 1.25rem;  
-  border-radius: 8px;  
-  font-weight: 500;  
-  transition: all 0.3s ease;  
+  margin: 0;  
+  font-size: 18px;  
+  font-weight: 600;  
+}  
+  
+.sidebar-menu {  
+  list-style: none;  
+  padding: 0;  
+  margin: 0;  
+}  
+  
+.sidebar-menu li {  
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);  
+}  
+  
+.sidebar-menu a {  
   display: flex;  
   align-items: center;  
-  gap: 0.5rem;  
-  backdrop-filter: blur(10px);  
+  padding: 15px 20px;  
+  color: #ecf0f1;  
+  text-decoration: none;  
+  transition: all 0.3s ease;  
 }  
   
-.btn-logout:hover {  
-  background: rgba(255, 255, 255, 0.25);  
+.sidebar-menu a:hover {  
+  background: rgba(255, 255, 255, 0.1);  
+  padding-left: 25px;  
+}  
+  
+.sidebar-menu a.active {  
+  background: rgba(52, 152, 219, 0.3);  
+  border-left: 4px solid #3498db;  
+}  
+  
+.sidebar-menu i {  
+  margin-right: 10px;  
+  font-size: 18px;  
+  width: 25px;  
+  text-align: center;  
+}  
+  
+.menu-toggle {  
+  position: fixed;  
+  top: 20px;  
+  left: 20px;  
+  z-index: 999;  
+  background: #3498db;  
   color: white;  
-  transform: translateY(-2px);  
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);  
+  border: none;  
+  padding: 10px 15px;  
+  border-radius: 5px;  
+  cursor: pointer;  
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);  
+  transition: all 0.3s ease;  
 }  
   
-.btn-logout i {  
-  font-size: 1.125rem;  
+.menu-toggle:hover {  
+  background: #2980b9;  
+  transform: scale(1.05);  
 }  
-
-/*dashboard*/
-.card {
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-  transition: all 0.2s ease-in-out;
-}
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 5px 12px rgba(0,0,0,0.15);
-}
-.dashboard-table-container {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-h1 {
-  font-weight: 700;
-}
-h3 {
-  color: #343a40;
-  font-weight: 600;
+  
+.sidebar-overlay {  
+  position: fixed;  
+  top: 0;  
+  left: 0;  
+  width: 100%;  
+  height: 100vh;  
+  background: rgba(0, 0, 0, 0.5);  
+  z-index: 998;  
+  display: none;  
+}  
+  
+.sidebar-overlay.active {  
+  display: block;  
+}  
+  
+.content-wrapper {  
+  transition: margin-left 0.3s ease;  
 }
 
-/* sidebar */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  width: 250px;
-  height: 100vh;
-  background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
-  transition: left 0.3s ease;
-  z-index: 1000;
-  overflow-y: auto;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.sidebar.active {
-  left: 0;
-}
-
-.sidebar-header {
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.sidebar-header h3 {
-  color: white;
-  margin: 0;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.sidebar-menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar-menu li {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.sidebar-menu a {
-  display: flex;
-  align-items: center;
-  padding: 15px 20px;
-  color: #ecf0f1;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.sidebar-menu a:hover {
-  background: rgba(255, 255, 255, 0.1);
-  padding-left: 25px;
-}
-
-.sidebar-menu a.active {
-  background: rgba(52, 152, 219, 0.3);
-  border-left: 4px solid #3498db;
-}
-
-.sidebar-menu i {
-  margin-right: 10px;
-  font-size: 18px;
-  width: 25px;
-  text-align: center;
-}
-
-.menu-toggle {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 999;
-  background: #3498db;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-.menu-toggle:hover {
-  background: #2980b9;
-  transform: scale(1.05);
-}
-
-.sidebar-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 998;
-  display: none;
-}
-
-.sidebar-overlay.active {
-  display: block;
-}
-
-.content-wrapper {
-  transition: margin-left 0.3s ease;
-}
-
-/* Responsividad */
-@media (max-width: 768px) {
-  .table-container {
-    padding: 10px;
-  }
-
-  .nombre-apellido {
-    flex-direction: row;
-    gap: 10px;
-  }
-
-  .acciones a {
-    display: block;
-    margin-bottom: 5px;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  .sidebar {
-    width: 200px;
-    left: -200px;
-  }
-
-  .user-header-bar {  
-    flex-direction: column;  
-    gap: 1rem;  
-    text-align: center;  
-  }  
+/* ============================================  
+   BARRA DE USUARIO  
+   ============================================ */  
+  
+/*Barra de usuario logeado*/  
+.user-header-bar {    
+  display: flex;    
+  justify-content: space-between;    
+  align-items: center;    
+  padding: 1rem 1.5rem;    
+  margin-bottom: 1.5rem;    
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);    
+  border-radius: 12px;    
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);    
+}    
     
-  .user-info-section {  
-    flex-direction: column;  
-    text-align: center;  
-  }  
+.user-info-section {    
+  display: flex;    
+  align-items: center;    
+  gap: 1rem;    
+}    
     
-  .user-details {  
-    align-items: center;  
+.user-avatar {    
+  font-size: 2.5rem;    
+  color: white;    
+  display: flex;    
+  align-items: center;    
+}    
+    
+.user-details {    
+  display: flex;    
+  flex-direction: column;    
+  gap: 0.25rem;    
+}    
+    
+.welcome-text {    
+  color: rgba(255, 255, 255, 0.8);    
+  font-size: 0.875rem;    
+  font-weight: 400;    
+}    
+    
+.user-name {    
+  color: white;    
+  font-size: 1.125rem;    
+  font-weight: 600;    
+  line-height: 1.2;    
+}    
+    
+.role-badge {    
+  background: rgba(255, 255, 255, 0.2);    
+  color: white;    
+  padding: 0.25rem 0.75rem;    
+  border-radius: 20px;    
+  font-size: 0.75rem;    
+  font-weight: 500;    
+  backdrop-filter: blur(10px);    
+  border: 1px solid rgba(255, 255, 255, 0.3);    
+  width: fit-content;    
+}    
+    
+.btn-logout {    
+  background: rgba(255, 255, 255, 0.15);    
+  color: white;    
+  border: 1px solid rgba(255, 255, 255, 0.3);    
+  padding: 0.5rem 1.25rem;    
+  border-radius: 8px;    
+  font-weight: 500;    
+  transition: all 0.3s ease;    
+  display: flex;    
+  align-items: center;    
+  gap: 0.5rem;    
+  backdrop-filter: blur(10px);    
+}    
+    
+.btn-logout:hover {    
+  background: rgba(255, 255, 255, 0.25);    
+  color: white;    
+  transform: translateY(-2px);    
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);    
+}    
+    
+.btn-logout i {    
+  font-size: 1.125rem;    
+}
+
+/* ============================================  
+   DATATABLES Y SCROLLBAR  
+   ============================================ */  
+  
+/* ==============================  
+   DataTables - Search input  
+   ============================== */  
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {  
+  background: linear-gradient(90deg, #715aff, #394a96) !important; /* violeta-azul */  
+  border: 1px solid #ffeaa7 !important; /* dorado */  
+  color: white !important;  
+}  
+  
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {  
+  background: linear-gradient(90deg, #ffeaa7, #715aff) !important;  
+  color: #1c1f33 !important;  
+}  
+  
+/* DataTables adaptación */    
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {    
+  background: linear-gradient(90deg, #715aff, #394a96) !important;    
+  border: none !important;    
+  color: white !important;    
+}    
+    
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {    
+  background: linear-gradient(90deg, #ffeaa7, #715aff) !important;    
+  color: #1c1f33 !important;    
+}  
+  
+/* Scrollbar personalizada */  
+::-webkit-scrollbar {  
+  width: 12px;  
+}  
+  
+::-webkit-scrollbar-track {  
+  background: #1c1f33;  
+  border-left: 1px solid #ffeaa7;  
+}  
+  
+::-webkit-scrollbar-thumb {  
+  background: linear-gradient(180deg, #715aff, #394a96);  
+  border-radius: 6px;  
+  border: 2px solid #ffeaa7;  
+}  
+  
+::-webkit-scrollbar-thumb:hover {  
+  background: linear-gradient(180deg, #ffeaa7, #715aff);  
+}
+
+/* ============================================  
+   RESPONSIVIDAD  
+   ============================================ */  
+  
+/* Responsividad */  
+@media (max-width: 768px) {  
+  .table-container {  
+    padding: 10px;  
   }  
+  
+  .nombre-apellido {  
+    flex-direction: row;  
+    gap: 10px;  
+  }  
+  
+ .acciones a {  
+    margin-right: 3px;  
+    margin-bottom: 3px;  
+  }  
+  
+  h1 {  
+    font-size: 1.5rem;  
+  }  
+  
+  .sidebar {  
+    width: 200px;  
+    left: -200px;  
+  }  
+  
+  .user-header-bar {    
+    flex-direction: column;    
+    gap: 1rem;    
+    text-align: center;    
+  }    
+      
+  .user-info-section {    
+    flex-direction: column;    
+    text-align: center;    
+  }    
+      
+  .user-details {    
+    align-items: center;    
+  }    
+}
+
+/* ============================================  
+   ESTILOS ADICIONALES DASHBOARD  
+   ============================================ */  
+  
+/*dashboard*/  
+.dashboard-table-container {  
+  background: #fff;  
+  padding: 20px;  
+  border-radius: 12px;  
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);  
+}  
+  
+h1 {  
+  font-weight: 700;  
+}  
+  
+h3 {  
+  color: #343a40;  
+  font-weight: 600;  
 }
