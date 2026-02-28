@@ -12,7 +12,7 @@
       <span class="badge role-badge"><?php echo $_SESSION['usuario_rol']; ?></span>  
     </div>  
   </div>  
-  <a href="CRUD/Login/cerrarSesion.php" class="btn btn-logout">  
+  <a href="CRUD/Login/cerrarSesion.php" class="btn-logout">  
     <i class="bi bi-box-arrow-right"></i>  
     <span>Cerrar Sesión</span>  
   </a>  
