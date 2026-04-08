@@ -54,9 +54,9 @@ if (mysqli_query($conexion, $sql)) {
         if ($usuario['rol_sistema'] == 'Administrador') {    
             header("location: ../../index.php");    
          } elseif ($usuario['rol_sistema'] == 'Oficina') {    
-            header("location: ../../empleado.php");    
+            header("location: ../../pages/empleado.php");    
          } else {  // Empleado  
-            header("location: ../../perfil_empleado.php");    
+            header("location: ../../pages/perfil_empleado.php");    
         }    
         exit();
 } else {  

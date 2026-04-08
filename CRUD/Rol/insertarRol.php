@@ -16,7 +16,7 @@ if ($horario_id === NULL) {
 }  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../../rol.php?success=agregado");  
+    header("location:../../pages/rol.php?success=agregado");  
 } else {  
-    header("location:../../rol.php?error=db");  
+    header("location:../../pages/rol.php?error=db");  
 }

@@ -8,7 +8,7 @@ $id = $_GET['Id'];
 $sql = "DELETE FROM asistencias WHERE id=$id";  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../../asistencia.php?success=eliminado");  
+    header("location:../../pages/asistencia.php?success=eliminado");  
 } else {  
-    header("location:../../asistencia.php?error=db");  
+    header("location:../../pages/asistencia.php?error=db");  
 }

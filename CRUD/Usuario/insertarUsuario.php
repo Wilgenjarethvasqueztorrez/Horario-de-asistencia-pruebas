@@ -12,8 +12,8 @@ $sql = "INSERT INTO usuarios (nombre, apellido, correo, rol_sistema)
         VALUES ('$nombre', '$apellido', '$correo', '$rol_sistema')";  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../../usuario.php?success=agregado");  
+    header("location:../../pages/usuario.php?success=agregado");  
 } else {  
-    header("location:../../usuario.php?error=db");  
+    header("location:../../pages/usuario.php?error=db");  
 }
 

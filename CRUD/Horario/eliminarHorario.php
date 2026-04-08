@@ -10,7 +10,7 @@ $sql = "DELETE FROM horarios WHERE id=".$Id."";
 $query = mysqli_query($conexion,$sql);
 
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../../horario.php?success=eliminado");  
+    header("location:../../pages/horario.php?success=eliminado");  
 } else {  
-    header("location:../../horario.php?error=db");  
+    header("location:../../pages/horario.php?error=db");  
 }

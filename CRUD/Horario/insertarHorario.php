@@ -18,9 +18,9 @@ if ($tipo == 'Flexible') {
 }  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../../horario.php?success=agregado");  
+    header("location:../../pages/horario.php?success=agregado");  
 } else {  
-    header("location:../../horario.php?error=db");  
+    header("location:../../pages/horario.php?error=db");  
 }
 
 

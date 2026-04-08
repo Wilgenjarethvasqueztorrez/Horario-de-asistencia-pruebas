@@ -11,7 +11,7 @@ $sql = "UPDATE empleados
         WHERE id=$id";  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../../empleado.php?success=editado");  
+    header("location:../../pages/empleado.php?success=editado");  
 } else {  
-    header("location:../../empleado.php?error=db");  
+    header("location:../../pages/empleado.php?error=db");  
 }

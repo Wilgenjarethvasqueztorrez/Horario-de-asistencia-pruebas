@@ -18,7 +18,7 @@ if ($hora_salida === NULL) {
 }  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../../asistencia.php?success=agregado");  
+    header("location:../../pages/asistencia.php?success=agregado");  
 } else {  
-    header("location:../../asistencia.php?error=db");  
+    header("location:../../pages/asistencia.php?error=db");  
 }

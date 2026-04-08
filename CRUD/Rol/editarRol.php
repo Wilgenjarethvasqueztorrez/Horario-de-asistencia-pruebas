@@ -15,7 +15,7 @@ $sql = "UPDATE roles
         WHERE id=$id";  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../../rol.php?success=editado");  
+    header("location:../../pages/rol.php?success=editado");  
 } else {  
-    header("location:../../rol.php?error=db");  
+    header("location:../../pages/rol.php?error=db");  
 }

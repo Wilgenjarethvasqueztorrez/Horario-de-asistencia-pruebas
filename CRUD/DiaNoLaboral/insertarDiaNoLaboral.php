@@ -17,7 +17,7 @@ if ($empleado_id === NULL) {
 }  
   
 if (mysqli_query($conexion, $sql)) {  
-    header("location:../../dia_no_laboral.php?success=agregado");  
+    header("location:../../pages/dia_no_laboral.php?success=agregado");  
 } else {  
-    header("location:../../dia_no_laboral.php?error=db");  
+    header("location:../../pages/dia_no_laboral.php?error=db");  
 }
