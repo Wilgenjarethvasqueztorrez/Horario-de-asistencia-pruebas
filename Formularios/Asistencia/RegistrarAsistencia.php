@@ -93,8 +93,8 @@
   
             <!-- Botones -->  
             <div class="text-center">  
-                <button type="submit" class="btn btn-primary">Registrar</button>  
-                <a href="../../empleado.php" class="btn btn-dark">Cancelar</a>  
+                <button type="submit" class="btn btn-dark">Registrar</button>  
+                <a href="../../pages/empleado.php" class="btn btn-dark">Cancelar</a>  
             </div>  
         </form>  
     </div>  

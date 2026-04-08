@@ -100,8 +100,8 @@
             </script>  
   
             <div class="text-center">  
-                <button type="submit" class="btn btn-primary">Actualizar</button>  
-                <a href="../../asistencia.php" class="btn btn-dark">Cancelar</a>  
+                <button type="submit" class="btn btn-dark">Actualizar</button>  
+                <a href="../../pages/asistencia.php" class="btn btn-dark">Cancelar</a>  
             </div>  
         </form>  
     </div>  

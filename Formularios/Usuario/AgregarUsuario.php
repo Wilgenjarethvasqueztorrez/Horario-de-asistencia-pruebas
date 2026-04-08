@@ -41,8 +41,9 @@
               
             <!-- Botones -->  
             <div class="text-center">  
-                <button type="submit" class="btn btn-primary">Registrar</button>  
-                <a href="../../usuario.php" class="btn btn-dark">Cancelar</a>  
+                <button type="submit" class="btn btn-dark">Registrar</button>  
+        <form action="." method="post">  
+                <a href="../../pages/usuario.php" class="btn btn-dark">Cancelar</a>  
             </div>  
         </form>  
     </div>  

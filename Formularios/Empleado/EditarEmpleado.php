@@ -38,7 +38,7 @@
   
             <!-- Seleccionar rol laboral -->  
             <label for="">Rol Laboral</label>  
-            <select class="form-select mb-3" name="RolId" required>  
+            <select id="select2-rol" class="form-select mb-3" name="RolId" required>  
                 <?php  
                 $sqlRoles = $conexion->query("SELECT roles.id, roles.nombre, roles.descripcion, horarios.nombre as horario_nombre   
                                               FROM roles   
@@ -62,8 +62,8 @@
   
             <!-- Botones -->  
             <div class="text-center">  
-                <button type="submit" class="btn btn-primary">Actualizar</button>  
-                <a href="../../empleado.php" class="btn btn-dark">Cancelar</a>  
+                <button type="submit" class="btn btn-dark">Actualizar</button>  
+                <a href="../../pages/empleado.php" class="btn btn-dark">Cancelar</a>  
             </div>  
         </form>  
     </div>  

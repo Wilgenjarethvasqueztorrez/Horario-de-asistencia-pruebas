@@ -6,13 +6,6 @@
     <title>Agregar Horario</title>  
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../src/css/styles.css" />  
-        <style>  
-   .form-control::placeholder {
-    color: rgba(212, 212, 245, 0.55);
-    opacity: 1; /* Firefox */
-}
-  
-    </style>
 </head>  
 <body>  
     <h1 class="bg-primary p-2 text-white text-center">Agregar Horario</h1>  
@@ -54,8 +47,8 @@
   
             <!-- Botones -->  
             <div class="text-center">  
-                <button type="submit" class="btn btn-primary">Registrar</button>  
-                <a href="../../horario.php" class="btn btn-dark">Cancelar</a>  
+                <button type="submit" class="btn btn-dark">Registrar</button>  
+                <a href="../../pages/horario.php" class="btn btn-dark">Cancelar</a>  
             </div>  
         </form>  
     </div>  

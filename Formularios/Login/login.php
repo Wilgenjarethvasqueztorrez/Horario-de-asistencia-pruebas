@@ -6,9 +6,9 @@ if (isset($_SESSION['usuario_id'])) {
     if ($_SESSION['usuario_rol'] == 'Administrador') {  
         header("location:../../index.php");  
     } elseif ($_SESSION['usuario_rol'] == 'Oficina') {  
-        header("location:../../empleado.php");  
+        header("location:../../pages/empleado.php");  
     } else {  // Empleado  
-        header("location:../../perfil_empleado.php");  
+        header("location:../../pages/perfil_empleado.php");  
     }  
     exit();  
 }
