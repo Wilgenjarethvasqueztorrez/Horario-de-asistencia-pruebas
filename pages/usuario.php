@@ -39,7 +39,7 @@ verificarRol(['Administrador']);
         <h1 class="bg-primary p-3 text-white text-center rounded">👥 GESTIÓN DE USUARIOS DEL SISTEMA</h1>
 
         <div class="text-end mb-3">
-            <a href="Formularios/Usuario/AgregarUsuario.php" class="btn btn-success">
+            <a href="<?php echo BASE_URL; ?>Formularios/Usuario/AgregarUsuario.php" class="btn btn-success">
                 <i class="bi bi-plus-circle"></i> Agregar Usuario
             </a>
         </div>
