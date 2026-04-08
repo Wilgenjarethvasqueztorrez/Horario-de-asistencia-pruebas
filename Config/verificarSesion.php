@@ -18,3 +18,9 @@ function verificarRol($roles_permitidos) {
         exit();  
     }  
 }  
+
+// Detectar la ruta base del proyecto automáticamente  
+define('BASE_URL', '/Horario-de-asistencia/');    
+
+// Ruta del sistema de archivos (para require/include)  
+define('BASE_PATH', dirname(__DIR__) . '/');  
