@@ -8,11 +8,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../src/css/styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- Dependencias vía CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
 </head>
 
 <body>
-
     <main class="container mt-4" id="contenido-pdf">
         <?php
         require("../../Config/Conexion.php");
@@ -33,14 +34,13 @@
         $empleado = $sqlEmpleado->fetch_assoc();
         ?>
 
+
         <!-- Botones de acción en la parte superior -->
         <div class="d-flex justify-content-between align-items-center mb-3">
             <a href="../../pages/empleado.php" class="btn btn-primary">
                 <i class="bi bi-arrow-left"></i> Volver a Empleados
             </a>
-            <button
-                onclick="generarPDF('<?php echo $empleado['nombre'] . '_' . $empleado['apellido']; ?>', '<?php echo date('Y-m-d'); ?>')"
-                class="btn btn-danger">
+            <button id="btnExportarPDF" class="btn btn-danger">
                 <i class="bi bi-file-pdf"></i> Exportar PDF
             </button>
         </div>
@@ -187,35 +187,35 @@
                     while ($resultado = $sql->fetch_assoc()) {
                         $total_horas_acumuladas += $resultado['total_horas'];
                     ?>
-                    <tr>
-                        <td><?php echo date('d/m/Y', strtotime($resultado['fecha'])); ?></td>
-                        <td><?php echo $resultado['hora_entrada']; ?></td>
-                        <td>
-                            <?php
+                        <tr>
+                            <td><?php echo date('d/m/Y', strtotime($resultado['fecha'])); ?></td>
+                            <td><?php echo date('h:i A', strtotime($resultado['hora_entrada'])); ?></td>
+                            <td>
+                                <?php
                                 if ($resultado['hora_salida']) {
-                                    echo $resultado['hora_salida'];
+                                    echo date('h:i A', strtotime($resultado['hora_salida']));
                                 } else {
                                     echo "<span class='badge bg-warning'>Sin registrar</span>";
                                 }
                                 ?>
-                        </td>
-                        <td>
-                            <?php
+                            </td>
+                            <td>
+                                <?php
                                 if ($resultado['total_horas'] > 0) {
                                     echo number_format($resultado['total_horas'], 2) . " hrs";
                                 } else {
                                     echo "<span class='text-muted'>-</span>";
                                 }
                                 ?>
-                        </td>
-                        <td class="acciones">
-                            <a href="../../CRUD/Empledo/eliminarAsistencia.php?Id=<?php echo $resultado['id']; ?>&EmpleadoId=<?php echo $empleado_id; ?>"
-                                class="btn btn-danger btn-sm"
-                                onclick="event.preventDefault(); confirmarEliminacion(this.href)">
-                                <i class="bi bi-trash3"></i> Eliminar
-                            </a>
-                        </td>
-                    </tr>
+                            </td>
+                            <td class="acciones">
+                                <a href="../../CRUD/Empledo/eliminarAsistencia.php?Id=<?php echo $resultado['id']; ?>&EmpleadoId=<?php echo $empleado_id; ?>"
+                                    class="btn btn-danger btn-sm"
+                                    onclick="event.preventDefault(); confirmarEliminacion(this.href)">
+                                    <i class="bi bi-trash3"></i> Eliminar
+                                </a>
+                            </td>
+                        </tr>
                     <?php } ?>
                 </tbody>
                 <tfoot>
@@ -235,9 +235,26 @@
     <!-- Incluir Sweetalert -->
     <?php include('../../src/includes/Dependencias/sweetalert.php') ?>
 
-    <!-- Cargar el archivo JS externo -->
-    <script src="../../src/includes/Dependencias/html2pdf.js"></script>
+    <!-- Scripts al final -->
+    <script>
+        window.datosEmpleado = {
+            nombre: "<?php echo $empleado['nombre'] . ' ' . $empleado['apellido']; ?>",
+            rol: "<?php echo $empleado['rol_nombre']; ?>",
+            estado: "<?php echo $empleado['activo'] ? 'Activo' : 'Inactivo'; ?>",
+            horasSemana: "<?php echo number_format($totalSemana, 2); ?> hrs",
+            rangoSemana: "<?php echo $inicio_semana . ' a ' . $fin_semana; ?>",
+            horasQuincena: "<?php echo number_format($totalQuincena, 2); ?> hrs",
+            rangoQuincena: "<?php echo $inicio_quincena . ' a ' . $fin_quincena; ?>",
+            horasMes: "<?php echo number_format($totalMes, 2); ?> hrs",
+            rangoMes: "<?php echo $inicio_mes . ' a ' . $fin_mes; ?>",
+            horasAnio: "<?php echo number_format($totalAnio, 2); ?> hrs",
+            rangoAnio: "<?php echo $inicio_anio . ' a ' . $fin_anio; ?>",
+            totalHoras: "<?php echo number_format($total_horas_acumuladas, 2); ?> hrs",
+            fechaActual: "<?php echo date('Y-m-d H:i:s'); ?>"
+        };
+    </script>
 
+    <script src="../../src/includes/Dependencias/jspdf.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
