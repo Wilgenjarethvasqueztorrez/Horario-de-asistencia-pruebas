@@ -41,9 +41,6 @@ verificarRol(['Administrador', 'Oficina']);
             <a href="<?php echo BASE_URL; ?>Formularios/Empleado/AgregarEmpleado.php" class="btn btn-success">
                 <i class="bi bi-plus-circle"></i> Agregar Empleado
             </a>
-            <a href="<?php echo BASE_URL; ?>Formularios/Asistencia/AgregarAsistencia.php" class="btn btn-primary">
-                <i class="bi bi-clock"></i> Registrar Asistencia
-            </a>
         </div>
 
         <div class="table-container">

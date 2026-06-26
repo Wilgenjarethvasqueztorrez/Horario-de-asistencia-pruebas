@@ -87,7 +87,7 @@ verificarRol(['Administrador', 'Oficina']);
                                 if ($resultado['hora_salida']) {
                                     echo date('h:i A', strtotime($resultado['hora_salida']));  
                                 } else {
-                                    echo "<span class='badge bg-warning'>Sin registrar</span>";
+                                    echo "<span class='text-dark badge bg-warning'>Sin registrar</span>";
                                 }
                                 ?>
                         </td>
@@ -96,7 +96,7 @@ verificarRol(['Administrador', 'Oficina']);
                                 if ($resultado['total_horas'] > 0) {
                                     echo number_format($resultado['total_horas'], 2) . " hrs";
                                 } else {
-                                    echo "<span class='text-muted'>-</span>";
+                                    echo "<span class='text-dark'>-</span>";
                                 }
                                 ?>
                         </td>

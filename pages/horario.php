@@ -77,7 +77,7 @@ verificarRol(['Administrador', 'Oficina']);
                                 if ($resultado['hora_inicio'] && $resultado['hora_fin']) {
                                     echo date('h:i A', strtotime($resultado['hora_inicio'])) . " - " . date('h:i A', strtotime($resultado['hora_fin']));
                                 } else {
-                                    echo "<span class='text-muted'>Horario flexible</span>";
+                                    echo "<span class='text-dark'>Horario flexible</span>";
                                 }
                                 ?>
                             </td>

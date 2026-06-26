@@ -92,7 +92,7 @@ verificarRol(['Administrador', 'Oficina']);
                                         class="btn btn-warning btn-sm">
                                         <i class="bi bi-pencil"></i> Editar
                                     </a>
-                                    <a href="<?php echo BASE_URL; ?>CRUD/eliminarDiaNoLaboral.php?Id=<?php echo $feriado['id']; ?>"
+                                    <a href="<?php echo BASE_URL; ?>CRUD/DiaNoLaboral/eliminarDiaNoLaboral.php?Id=<?php echo $feriado['id']; ?>"
                                         class="btn btn-danger btn-sm"
                                         onclick="event.preventDefault(); confirmarEliminacion(this.href)">
                                         <i class="bi bi-trash3"></i> Eliminar

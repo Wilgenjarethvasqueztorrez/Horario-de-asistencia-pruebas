@@ -11,7 +11,7 @@ verificarRol(['Administrador', 'Oficina']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Peticiones</title>
+    <title>Solicitudes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!--Dependencias-->
@@ -35,7 +35,7 @@ verificarRol(['Administrador', 'Oficina']);
     <main class="container mt-4">
         <?php include(BASE_PATH . "src/includes/Componentes/userbar.php"); ?>
 
-        <h1 class="bg-info p-3 text-white text-center rounded">🔔 LISTADO DE PETICIONES</h1>
+        <h1 class="bg-info p-3 text-white text-center rounded">🔔 LISTADO DE SOLICITUDES</h1>
 
         <div class="table-container">
             <table id="tabla" class="table table-hover">
@@ -52,15 +52,15 @@ verificarRol(['Administrador', 'Oficina']);
                     <?php
                     require(BASE_PATH . "Config/Conexion.php");
 
-                    $sql = $conexion->query("SELECT peticiones.*,   
+                    $sql = $conexion->query("SELECT solicitudes.*,   
                                                            usuarios.nombre,   
                                                            usuarios.apellido,  
                                                            roles.nombre as rol_nombre  
-                                                    FROM peticiones  
-                                                    INNER JOIN empleados ON peticiones.empleado_id = empleados.id  
+                                                    FROM solicitudes  
+                                                    INNER JOIN empleados ON solicitudes.empleado_id = empleados.id  
                                                     INNER JOIN usuarios ON empleados.empleado_id = usuarios.id  
                                                     INNER JOIN roles ON empleados.rol_id = roles.id   
-                                                    ORDER BY peticiones.descripcion DESC");
+                                                    ORDER BY solicitudes.descripcion DESC");
 
                     while ($resultado = $sql->fetch_assoc()) {
                     ?>
@@ -98,11 +98,11 @@ verificarRol(['Administrador', 'Oficina']);
 
 
                             <td class="acciones">
-                                <a href="<?php echo BASE_URL; ?>Formularios/Peticion/EditarPeticion.php?Id=<?php echo $resultado['id']; ?>"
+                                <a href="<?php echo BASE_URL; ?>Formularios/Solicitud/EditarSolicitud.php?Id=<?php echo $resultado['id']; ?>"
                                 class="btn btn-warning btn-sm">
                                 <i class="bi bi-pencil"></i> Editar
                                 </a>
-                                <a href="<?php echo BASE_URL; ?>CRUD/Peticion/eliminarPeticion.php?Id=<?php echo $resultado['id']; ?>"
+                                <a href="<?php echo BASE_URL; ?>CRUD/Solicitud/eliminarSolicitud.php?Id=<?php echo $resultado['id']; ?>"
                                     class="btn btn-danger btn-sm"
                                     onclick="event.preventDefault(); confirmarEliminacion(this.href)">
                                     <i class="bi bi-trash3"></i> Eliminar

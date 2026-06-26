@@ -38,7 +38,7 @@ $usuario = $sql_usuario->fetch_assoc();
         <!-- Información Personal -->
         <div class="row mt-4 g-3">
             <div class="col-md-8">
-                <div class="card shadow-sm">
+                <div style="background: white;" class="card shadow-sm">
                     <div class="card-header bg-primary text-dark">
                         <h5 class="mb-0"><i class="bi bi-person-circle"></i> Información Personal</h5>
                     </div>
@@ -103,7 +103,7 @@ $usuario = $sql_usuario->fetch_assoc();
 
             <!-- Configuración de Cuenta -->
             <div class="col-md-4">
-                <div class="card shadow-sm">
+                <div style="background: white;" class="card shadow-sm">
                     <div class="card-header bg-secondary text-white">
                         <h5 class="mb-0"><i class="bi bi-gear-fill"></i> Configuración de Cuenta</h5>
                     </div>
